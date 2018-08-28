@@ -1,0 +1,188 @@
+<?xml version='1.0'?>
+<sdf version='1.6'>
+  <model name="my_robot">
+    <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
+      <robotNamespace>/sample1</robotNamespace>
+    </plugin>
+    <static>false</static>
+
+    <link name='bottom'>
+      <pose>0 0 0.01 0 0 0</pose>
+      <collision name='collision'>
+	<geometry>
+	  <box>
+	    <size>0.1 0.05 0.02</size>
+	  </box>
+	</geometry>
+      </collision>
+      <visual name='visual'>
+	<geometry>
+	  <box>
+	    <size>0.1 0.05 0.02</size>
+	  </box>
+	</geometry>
+      </visual>
+      <self_collide>1</self_collide>
+      <inertial>
+	<mass>0.1</mass>
+	<inertia>
+	  <ixx>0.000025</ixx>
+	  <iyy>0.00009</iyy>
+	  <izz>0.000105</izz>
+	</inertia>
+      </inertial>
+    </link>
+    
+    <link name="left">
+      <pose>-0.045 -0.03 0.06 0 0 0</pose>
+      <collision name="collision">
+	<geometry>
+	  <box>
+	    <size>0.01 0.01 0.1</size>
+	  </box>
+	</geometry>
+      </collision>
+      <visual name="visual">
+	<geometry>
+	  <box>
+	    <size>0.01 0.01 0.1</size>
+	  </box>
+	</geometry>
+      </visual>
+      <self_collide>1</self_collide>
+      <inertial>
+	<mass>0.01</mass>
+	<inertia>
+	  <ixx>0.0000085</ixx>
+	  <iyy>0.0000085</iyy>
+	  <izz>0.0000002</izz>
+	</inertia>
+      </inertial>
+    </link>
+
+    <link name="right">
+      <pose>0.045 -0.03 0.06 0 0 0</pose>
+      <collision name="collision">
+	<geometry>
+	  <box>
+	    <size>0.01 0.01 0.1</size>
+	  </box>
+	</geometry>
+      </collision>
+      <visual name="visual">
+	<geometry>
+	  <box>
+	    <size>0.01 0.01 0.1</size>
+	  </box>
+	</geometry>
+      </visual>
+      <self_collide>1</self_collide>
+      <inertial>
+	<mass>0.01</mass>
+	<inertia>
+	  <ixx>0.0000085</ixx>
+	  <iyy>0.0000085</iyy>
+	  <izz>0.0000002</izz>
+	</inertia>
+      </inertial>
+    </link>
+
+    <link name="top">
+      <pose>0 -0.02 0.105 0 0 0</pose>
+      <collision name="collision">
+	<geometry>
+	  <box>
+	    <size>0.1 0.01 0.01</size>
+	  </box>
+	</geometry>
+      </collision>
+      <visual name="visual">
+	<geometry>
+	  <box>
+	    <size>0.1 0.01 0.01</size>
+	  </box>
+	</geometry>
+      </visual>
+      <self_collide>1</self_collide>
+      <inertial>
+	<mass>0.01</mass>
+	<inertia>
+	  <ixx>0.0000002</ixx>
+	  <iyy>0.0000085</iyy>
+	  <izz>0.0000085</izz>
+	</inertia>
+      </inertial>
+    </link>
+    
+    <joint type="revolute" name="ld_hinge">
+      <pose>0 0 -0.045 0 0 0</pose>
+      <child>left</child>
+      <parent>bottom</parent>
+      <axis>
+	<xyz>0 1 0</xyz>
+	<limit>
+	  <lower>-1.5707</lower>
+	  <upper>1.5707</upper>
+	  <effort>0.4</effort>
+	  <velocity>1.5707</velocity>
+	</limit>
+      </axis>
+    </joint>
+
+    <joint type="revolute" name="rd_hinge">
+      <pose>0 0 -0.045 0 0 0</pose>
+      <child>right</child>
+      <parent>bottom</parent>
+      <axis>
+	<xyz>0 1 0</xyz>
+	<limit>
+	  <lower>-1.5707</lower>
+	  <upper>1.5707</upper>
+	  <effort>0</effort>
+	  <velocity>1.5707</velocity>
+	</limit>
+      </axis>
+    </joint>
+
+    <joint type="revolute" name="lu_hinge">
+      <pose>-0.045 0 0 0 0 0</pose>
+      <child>top</child>
+      <parent>left</parent>
+      <axis>
+	<xyz>0 1 0</xyz>
+	<limit>
+	  <lower>-1.5707</lower>
+	  <upper>1.5707</upper>
+	  <effort>0</effort>
+	  <velocity>1.5707</velocity>
+	</limit>
+      </axis>
+    </joint>
+
+    <joint type="revolute" name="ru_hinge">
+      <pose>0.045 0 0 0 0 0</pose>
+      <child>top</child>
+      <parent>right</parent>
+      <axis>
+	<xyz>0 1 0</xyz>
+	<limit>
+  	  <lower>-1.5707</lower>
+  	  <upper>1.5707</upper>
+  	  <effort>0</effort>
+  	  <velocity>1.5707</velocity>
+	</limit>
+      </axis>
+    </joint>
+
+    <transmission name="tran_ld">
+      <type>transmission_interface/SimpleTransmission</type>
+      <joint name="ld_hinge">
+	<hardwareInterface>EffortJointInterface</hardwareInterface>
+      </joint>
+      <actuator name="motor_ld">
+	<hardwareInterface>EffortJointInterface</hardwareInterface>
+	<mechanicalReduction>1</mechanicalReduction>
+      </actuator>
+    </transmission>
+  </model>
+</sdf>

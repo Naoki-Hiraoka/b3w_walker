@@ -1,0 +1,221 @@
+/*********************************************************************
+ * Software License Agreement (BSD License)
+ *
+ *  Copyright (c) 2012, Willow Garage, Inc.
+ *  All rights reserved.
+ *
+ *  Redistribution and use in source and binary forms, with or without
+ *  modification, are permitted provided that the following conditions
+ *  are met:
+ *
+ *   * Redistributions of source code must retain the above copyright
+ *     notice, this list of conditions and the following disclaimer.
+ *   * Redistributions in binary form must reproduce the above
+ *     copyright notice, this list of conditions and the following
+ *     disclaimer in the documentation and/or other materials provided
+ *     with the distribution.
+ *   * Neither the name of Willow Garage nor the names of its
+ *     contributors may be used to endorse or promote products derived
+ *     from this software without specific prior written permission.
+ *
+ *  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+ *  "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+ *  LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS
+ *  FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE
+ *  COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT,
+ *  INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING,
+ *  BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
+ *  LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
+ *  CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT
+ *  LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN
+ *  ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+ *  POSSIBILITY OF SUCH DAMAGE.
+ *********************************************************************/
+
+/* Author: Sachin Chitta, David Lu!!, Ugo Cupcic */
+
+#include <b3w_whole_body_ik_plugin/b3w_whole_body_ik_plugin.h>
+#include <class_loader/class_loader.h>
+
+//#include <tf/transform_datatypes.h>
+#include <tf_conversions/tf_kdl.h>
+#include <kdl_parser/kdl_parser.hpp>
+
+// URDF, SRDF
+#include <urdf_model/model.h>
+#include <srdfdom/model.h>
+
+#include <moveit/rdf_loader/rdf_loader.h>
+
+// register KDLKinematics as a KinematicsBase implementation
+CLASS_LOADER_REGISTER_CLASS(b3w_whole_body_ik_plugin::B3wWholeBodyIkPlugin, kinematics::KinematicsBase)
+
+namespace b3w_whole_body_ik_plugin
+{
+  using namespace kdl_kinematics_plugin;
+  B3wWholeBodyIkPlugin::B3wWholeBodyIkPlugin() : active_(false)
+{
+  ROS_ERROR_NAMED("ik", "construct");
+}
+
+void B3wWholeBodyIkPlugin::getRandomConfiguration(KDL::JntArray& jnt_array, bool lock_redundancy) const
+{
+}
+
+bool B3wWholeBodyIkPlugin::isRedundantJoint(unsigned int index) const
+{
+   return false;
+}
+
+void B3wWholeBodyIkPlugin::getRandomConfiguration(const KDL::JntArray& seed_state,
+                                                 const std::vector<double>& consistency_limits,
+                                                 KDL::JntArray& jnt_array, bool lock_redundancy) const
+{
+}
+
+bool B3wWholeBodyIkPlugin::checkConsistency(const KDL::JntArray& seed_state,
+                                           const std::vector<double>& consistency_limits,
+                                           const KDL::JntArray& solution) const
+{
+   return true;
+}
+
+bool B3wWholeBodyIkPlugin::initialize(const std::string& robot_description, const std::string& group_name,
+                                     const std::string& base_frame, const std::string& tip_frame,
+                                     double search_discretization)
+{
+  return true;
+}
+
+bool B3wWholeBodyIkPlugin::setRedundantJoints(const std::vector<unsigned int>& redundant_joints)
+{
+   return true;
+}
+
+int B3wWholeBodyIkPlugin::getJointIndex(const std::string& name) const
+{
+ 
+  return -1;
+}
+
+int B3wWholeBodyIkPlugin::getKDLSegmentIndex(const std::string& name) const
+{
+ 
+  return -1;
+}
+
+bool B3wWholeBodyIkPlugin::timedOut(const ros::WallTime& start_time, double duration) const
+{
+  return ((ros::WallTime::now() - start_time).toSec() >= duration);
+}
+
+bool B3wWholeBodyIkPlugin::getPositionIK(const geometry_msgs::Pose& ik_pose, const std::vector<double>& ik_seed_state,
+                                        std::vector<double>& solution, moveit_msgs::MoveItErrorCodes& error_code,
+                                        const kinematics::KinematicsQueryOptions& options) const
+{
+  return true;
+}
+
+bool B3wWholeBodyIkPlugin::searchPositionIK(const geometry_msgs::Pose& ik_pose, const std::vector<double>& ik_seed_state,
+                                           double timeout, std::vector<double>& solution,
+                                           moveit_msgs::MoveItErrorCodes& error_code,
+                                           const kinematics::KinematicsQueryOptions& options) const
+{
+    return true;
+
+}
+
+bool B3wWholeBodyIkPlugin::searchPositionIK(const geometry_msgs::Pose& ik_pose, const std::vector<double>& ik_seed_state,
+                                           double timeout, const std::vector<double>& consistency_limits,
+                                           std::vector<double>& solution, moveit_msgs::MoveItErrorCodes& error_code,
+                                           const kinematics::KinematicsQueryOptions& options) const
+{
+    return true;
+
+}
+
+bool B3wWholeBodyIkPlugin::searchPositionIK(const geometry_msgs::Pose& ik_pose, const std::vector<double>& ik_seed_state,
+                                           double timeout, std::vector<double>& solution,
+                                           const IKCallbackFn& solution_callback,
+                                           moveit_msgs::MoveItErrorCodes& error_code,
+                                           const kinematics::KinematicsQueryOptions& options) const
+{
+  return true;
+}
+
+bool B3wWholeBodyIkPlugin::searchPositionIK(const geometry_msgs::Pose& ik_pose, const std::vector<double>& ik_seed_state,
+                                           double timeout, const std::vector<double>& consistency_limits,
+                                           std::vector<double>& solution, const IKCallbackFn& solution_callback,
+                                           moveit_msgs::MoveItErrorCodes& error_code,
+                                           const kinematics::KinematicsQueryOptions& options) const
+{
+  return true;
+}
+
+bool B3wWholeBodyIkPlugin::searchPositionIK(const geometry_msgs::Pose& ik_pose, const std::vector<double>& ik_seed_state,
+                                           double timeout, std::vector<double>& solution,
+                                           const IKCallbackFn& solution_callback,
+                                           moveit_msgs::MoveItErrorCodes& error_code,
+                                           const std::vector<double>& consistency_limits,
+                                           const kinematics::KinematicsQueryOptions& options) const
+{
+  return true;
+}
+
+bool B3wWholeBodyIkPlugin::getPositionFK(const std::vector<std::string>& link_names,
+                                        const std::vector<double>& joint_angles,
+                                        std::vector<geometry_msgs::Pose>& poses) const
+{
+  ros::WallTime n1 = ros::WallTime::now();
+  if (!active_)
+  {
+    ROS_ERROR_NAMED("kdl", "kinematics not active");
+    return false;
+  }
+  poses.resize(link_names.size());
+  if (joint_angles.size() != dimension_)
+  {
+    ROS_ERROR_NAMED("kdl", "Joint angles vector must have size: %d", dimension_);
+    return false;
+  }
+
+  KDL::Frame p_out;
+  geometry_msgs::PoseStamped pose;
+  tf::Stamped<tf::Pose> tf_pose;
+
+  KDL::JntArray jnt_pos_in(dimension_);
+  for (unsigned int i = 0; i < dimension_; i++)
+  {
+    jnt_pos_in(i) = joint_angles[i];
+  }
+
+  KDL::ChainFkSolverPos_recursive fk_solver(kdl_chain_);
+
+  bool valid = true;
+  for (unsigned int i = 0; i < poses.size(); i++)
+  {
+    ROS_DEBUG_NAMED("kdl", "End effector index: %d", getKDLSegmentIndex(link_names[i]));
+    if (fk_solver.JntToCart(jnt_pos_in, p_out, getKDLSegmentIndex(link_names[i])) >= 0)
+    {
+      tf::poseKDLToMsg(p_out, poses[i]);
+    }
+    else
+    {
+      ROS_ERROR_NAMED("kdl", "Could not compute FK for %s", link_names[i].c_str());
+      valid = false;
+    }
+  }
+  return valid;
+}
+
+const std::vector<std::string>& B3wWholeBodyIkPlugin::getJointNames() const
+{
+  return ik_chain_info_.joint_names;
+}
+
+const std::vector<std::string>& B3wWholeBodyIkPlugin::getLinkNames() const
+{
+  return ik_chain_info_.link_names;
+}
+
+}  // namespace

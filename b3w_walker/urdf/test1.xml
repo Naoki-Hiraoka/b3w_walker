@@ -1,0 +1,9 @@
+<robot name="test">
+  <link name="base_link">
+    <visual>
+      <geometry>
+	<mesh filename="package://b3w_walker/stl/r_foot.STL" scale="0.001 0.001 0.001"/>
+      </geometry>
+    </visual>
+  </link>
+</robot>

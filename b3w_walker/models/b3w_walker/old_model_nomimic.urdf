@@ -1,0 +1,1135 @@
+<?xml version="1.0"?>
+<robot name="b3w_walker">
+  <gazebo>
+    <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
+      <robotNamespace>/b3w_walker</robotNamespace>
+    </plugin>
+    <static>false</static>
+  </gazebo>
+
+  <!-- <body/> -->
+  <link name="base_link">
+  </link>
+  <joint name="base_link_fixed" type="fixed">
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <parent link="base_link"/>
+    <child link="body"/>
+  </joint>
+     
+  <link name="body">
+    <visual name="west">
+      <origin xyz="33.5e-3 -54.5e-3 -43e-3" rpy="0 0 1.5707"/>
+      <geometry>
+      	<mesh filename="package://b3w_walker/models/b3w_walker/stl/body-west-1.STL" scale="1e-3 1e-3 1e-3"/>
+      </geometry>
+      <material name="brown">
+	<color rgba="0.8235 0.7059 0.549 1"/>
+      </material>
+    </visual>
+    <visual name="r_foot_joint">
+      <origin xyz="33.5e-3 -54.5e-3 -43e-3" rpy="0 0 1.5707"/>
+      <geometry>
+      	<mesh filename="package://b3w_walker/models/b3w_walker/stl/body-r_foot_joint-1.STL" scale="1e-3 1e-3 1e-3"/>
+      </geometry>
+      <material name="white">
+	<color rgba="1 1 1 1"/>
+      </material>
+    </visual>
+    <visual name="l_foot_joint">
+      <origin xyz="33.5e-3 -54.5e-3 -43e-3" rpy="0 0 1.5707"/>
+      <geometry>
+      	<mesh filename="package://b3w_walker/models/b3w_walker/stl/body-l_foot_joint-1.STL" scale="1e-3 1e-3 1e-3"/>
+      </geometry>
+      <material name="white">
+	<color rgba="1 1 1 1"/>
+      </material>
+    </visual>
+    <visual name="chest">
+      <origin xyz="33.5e-3 -54.5e-3 -43e-3" rpy="0 0 1.5707"/>
+      <geometry>
+      	<mesh filename="package://b3w_walker/models/b3w_walker/stl/body-chest-1.STL" scale="1e-3 1e-3 1e-3"/>
+      </geometry>
+      <material name="white">
+	<color rgba="1 1 1 1"/>
+      </material>
+    </visual>
+    <visual name="type2-1">
+      <origin xyz="33.5e-3 -54.5e-3 -43e-3" rpy="0 0 1.5707"/>
+      <geometry>
+      	<mesh filename="package://b3w_walker/models/b3w_walker/stl/body-type2-1.STL" scale="1e-3 1e-3 1e-3"/>
+      </geometry>
+      <material name="black">
+	<color rgba="0 0 0 1"/>
+      </material>
+    </visual>
+    <visual name="type2-2">
+      <origin xyz="33.5e-3 -54.5e-3 -43e-3" rpy="0 0 1.5707"/>
+      <geometry>
+      	<mesh filename="package://b3w_walker/models/b3w_walker/stl/body-type2-2.STL" scale="1e-3 1e-3 1e-3"/>
+      </geometry>
+      <material name="black">
+	<color rgba="0 0 0 1"/>
+      </material>
+    </visual>
+    <visual name="pi">
+      <origin xyz="33.5e-3 -54.5e-3 -43e-3" rpy="0 0 1.5707"/>
+      <geometry>
+      	<mesh filename="package://b3w_walker/models/b3w_walker/stl/body-pi-1.STL" scale="1e-3 1e-3 1e-3"/>
+      </geometry>
+      <material name="black">
+	<color rgba="0 0 0 1"/>
+      </material>
+    </visual>
+    <visual name="pole-1">
+      <origin xyz="33.5e-3 -54.5e-3 -43e-3" rpy="0 0 1.5707"/>
+      <geometry>
+      	<mesh filename="package://b3w_walker/models/b3w_walker/stl/body-pole-1.STL" scale="1e-3 1e-3 1e-3"/>
+      </geometry>
+      <material name="orange">
+	<color rgba="1 0.647 0 1"/>
+      </material>
+    </visual>
+    <visual name="pole-2">
+      <origin xyz="33.5e-3 -54.5e-3 -43e-3" rpy="0 0 1.5707"/>
+      <geometry>
+      	<mesh filename="package://b3w_walker/models/b3w_walker/stl/body-pole-2.STL" scale="1e-3 1e-3 1e-3"/>
+      </geometry>
+      <material name="orange">
+	<color rgba="1 0.647 0 1"/>
+      </material>
+    </visual>
+    <visual name="pole-3">
+      <origin xyz="33.5e-3 -54.5e-3 -43e-3" rpy="0 0 1.5707"/>
+      <geometry>
+      	<mesh filename="package://b3w_walker/models/b3w_walker/stl/body-pole-3.STL" scale="1e-3 1e-3 1e-3"/>
+      </geometry>
+      <material name="orange">
+	<color rgba="1 0.647 0 1"/>
+      </material>
+    </visual>
+    <visual name="pole-4">
+      <origin xyz="33.5e-3 -54.5e-3 -43e-3" rpy="0 0 1.5707"/>
+      <geometry>
+
+      	<mesh filename="package://b3w_walker/models/b3w_walker/stl/body-pole-4.STL" scale="1e-3 1e-3 1e-3"/>
+      </geometry>
+      <material name="orange">
+	<color rgba="1 0.647 0 1"/>
+      </material>
+    </visual>
+    <collision name="collision">
+      <origin xyz="0 0 72e-3" rpy="0 0 0"/>
+      <geometry>
+	<box size="68e-3 80e-3 150e-3"/>
+      </geometry>
+    </collision>
+    <inertial>
+      <origin xyz="0.23e-3 0 38.29e-3" rpy="0 0 1.5707"/>
+      <mass value="249.61e-3"/>
+      <inertia ixx="469536.22e-9" iyy="555552.88e-9" izz="269099.12e-9" ixy="0" iyz="-2538.43e-9" ixz="0"/>
+    </inertial>
+  </link>
+  <gazebo reference="body">
+      <selfCollide>true</selfCollide>
+  </gazebo>
+
+
+  
+  <!-- <right arm/> -->
+  <joint name="r_shoulder_pitch" type="revolute">
+    <origin xyz="10.5e-3 -54.5e-3 80e-3" rpy="0 0 0"/>
+    <parent link="body"/>
+    <child link="r_shoulder"/>
+    <axis xyz="0 1 0"/>
+    <limit effort="0.4" velocity="1.5707" lower="-1.5707" upper="1.5707" />
+  </joint>
+  <transmission name="tran_r_shoulder_pitch">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="r_shoulder_pitch">
+      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="motor_r_shoulder_pitch">
+      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+
+ <link name="r_shoulder">
+    <visual name="r_shoulder">
+      <origin xyz="21e-3 -43e-3 -20e-3" rpy="0 -1.5707 0"/>
+      <geometry>
+      	<mesh filename="package://b3w_walker/models/b3w_walker/stl/r_shoulder.STL" scale="1e-3 1e-3 1e-3"/>
+      </geometry>
+      <material name="white">
+	<color rgba="1 1 1 1"/>
+      </material>
+    </visual>
+    <collision name="collision">
+      <origin xyz="-10e-3 -21.5e-3 0" rpy="0 0 0"/>
+      <geometry>
+	<box size="62e-3 43e-3 40e-3"/>
+      </geometry>
+    </collision>
+    <inertial>
+      <origin xyz="-10.06e-3 -9.9e-3 2.3e-3" rpy="0 -1.5707 0"/>
+      <mass value="13.98e-3"/>
+      <inertia ixx="10014.76e-9" iyy="9800.30e-9" izz="3544.51e-9" ixy="-523.71e-9" iyz="-18.93e-9" ixz="6.31e-9"/>
+    </inertial>
+  </link>
+  <gazebo reference="r_shoulder">
+      <selfCollide>true</selfCollide>
+  </gazebo>
+
+  <joint name="r_shoulder_roll" type="revolute">
+    <origin xyz="18e-3 -33e-3 10e-3" rpy="0 0 0"/>
+    <parent link="r_shoulder"/>
+    <child link="r_upper_arm"/>
+    <axis xyz="1 0 0"/>
+    <limit effort="0.4" velocity="1.5707" lower="-1.5707" upper="0.3927" />
+  </joint>
+  <transmission name="tran_r_shoulder_roll">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="r_shoulder_roll">
+      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="motor_r_shoulder_roll">
+      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+
+  <link name="r_upper_arm">
+    <visual name="upper_arm">
+      <origin xyz="0 -10.5e-3 20e-3" rpy="0 1.5707 1.5707"/>
+      <geometry>
+      	<mesh filename="package://b3w_walker/models/b3w_walker/stl/arm-upper_arm-1.STL" scale="1e-3 1e-3 1e-3"/>
+      </geometry>
+      <material name="white">
+	<color rgba="1 1 1 1"/>
+      </material>
+    </visual>
+    <visual name="type2-1">
+      <origin xyz="0 -10.5e-3 20e-3" rpy="0 1.5707 1.5707"/>
+      <geometry>
+      	<mesh filename="package://b3w_walker/models/b3w_walker/stl/arm-type2-1.STL" scale="1e-3 1e-3 1e-3"/>
+      </geometry>
+      <material name="black">
+	<color rgba="0 0 0 1"/>
+      </material>
+    </visual>
+    <visual name="type2-2">
+      <origin xyz="0 -10.5e-3 20e-3" rpy="0 1.5707 1.5707"/>
+      <geometry>
+      	<mesh filename="package://b3w_walker/models/b3w_walker/stl/arm-type2-2.STL" scale="1e-3 1e-3 1e-3"/>
+      </geometry>
+      <material name="black">
+	<color rgba="0 0 0 1"/>
+      </material>
+    </visual>
+    <collision name="collision">
+      <origin xyz="-37.5e-3 0 -39.31e-3" rpy="0 0 0"/>
+      <geometry>
+	<box size="37e-3 21e-3 119e-3"/>
+      </geometry>
+    </collision>
+    <inertial>
+      <origin xyz="-28.23e-3 0 -39.5e-3" rpy="0 1.5707 1.5707"/>
+      <mass value="91.78e-3"/>
+      <inertia ixx="21303.42e-9" iyy="107781.77e-9" izz="122945.47e-9" ixy="0" iyz="0" ixz="0"/>
+    </inertial>
+  </link>
+  <gazebo reference="r_upper_arm">
+      <selfCollide>true</selfCollide>
+  </gazebo>
+
+  <joint name="r_elbow_roll" type="revolute">
+    <origin xyz="0 0 -79e-3" rpy="0 0 0"/>
+    <parent link="r_upper_arm"/>
+    <child link="r_lower_arm"/>
+    <axis xyz="-1 0 0"/>
+    <limit effort="0.4" velocity="1.5707" lower="-1.5707" upper="1.5707" />
+  </joint>
+  <transmission name="tran_r_elbow_roll">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="r_elbow_roll">
+      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="motor_r_elbow_roll">
+      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+
+  <link name="r_lower_arm">
+    <visual name="box">
+      <origin xyz="3e-3 -10.5e-3 -30e-3" rpy="1.5707 0 3.1415"/>
+      <geometry>
+	<mesh filename="package://b3w_walker/models/b3w_walker/stl/hinge.STL" scale="1e-3 1e-3 1e-3"/>
+      </geometry>
+      <material name="white">
+	<color rgba="1 1 1 1"/>
+      </material>
+    </visual>
+    <collision name="collision">
+      <origin xyz="-28e-3 0 -9e-3" rpy="0 0 0"/>
+      <geometry>
+	<box size="62e-3 21e-3 42e-3"/>
+      </geometry>
+    </collision>
+    <inertial>
+      <origin xyz="-27.91e-3 0 -16.74e-3" rpy="1.5707 0 3.1415"/>
+      <mass value="8.75e-3"/>
+      <inertia ixx="1894.18e-9" iyy="5884.31e-9" izz="7125.94e-9" ixy="-13.72e-9" iyz="0" ixz="0"/>
+    </inertial>
+  </link>
+  <gazebo reference="r_lower_arm">
+      <selfCollide>true</selfCollide>
+  </gazebo>
+
+  <joint name="r_arm_fixed" type="revolute">
+    <origin xyz="-28e-3 0 -30e-3" rpy="0 0 0"/>
+    <parent link="r_lower_arm"/>
+    <child link="r_arm_endcoords"/>
+    <axis xyz="0 1 0"/>
+    <limit effort="0" velocity="0" lower="0" upper="0.01" />
+  </joint>
+ 
+  <link name="r_arm_endcoords">
+  </link>
+
+
+  
+
+
+  <!-- <left arm/> -->
+  <joint name="l_shoulder_pitch" type="revolute">
+    <origin xyz="10.5e-3 54.5e-3 80e-3" rpy="0 0 0"/>
+    <parent link="body"/>
+    <child link="l_shoulder"/>
+    <axis xyz="0 -1 0"/>
+    <limit effort="0.4" velocity="1.5707" lower="-1.5707" upper="1.5707" />
+  </joint>
+  <transmission name="tran_l_shoulder_pitch">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="l_shoulder_pitch">
+      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="motor_l_shoulder_pitch">
+      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+
+  <link name="l_shoulder">
+    <visual name="l_shoulder">
+      <origin xyz="21e-3 0 -20e-3" rpy="0 -1.5707 0"/>
+      <geometry>
+      	<mesh filename="package://b3w_walker/models/b3w_walker/stl/l_shoulder.STL" scale="1e-3 1e-3 1e-3"/>
+      </geometry>
+      <material name="white">
+	<color rgba="1 1 1 1"/>
+      </material>
+    </visual>
+    <collision name="collision">
+      <origin xyz="-10e-3 21.5e-3 0" rpy="0 0 0"/>
+      <geometry>
+	<box size="62e-3 43e-3 40e-3"/>
+      </geometry>
+    </collision>
+    <inertial>
+      <origin xyz="-10.06e-3 9.9e-3 2.3e-3" rpy="0 -1.5707 0"/>
+      <mass value="13.98e-3"/>
+      <inertia ixx="10014.76e-9" iyy="9800.30e-9" izz="3544.51e-9" ixy="523.71e-9" iyz="18.93e-9" ixz="6.31e-9"/>
+    </inertial>
+  </link>
+  <gazebo reference="l_shoulder">
+      <selfCollide>true</selfCollide>
+  </gazebo>
+
+  <joint name="l_shoulder_roll" type="revolute">
+    <origin xyz="18e-3 33e-3 10e-3" rpy="0 0 0"/>
+    <parent link="l_shoulder"/>
+    <child link="l_upper_arm"/>
+    <axis xyz="1 0 0"/>
+    <limit effort="0.4" velocity="1.5707" lower="-0.3927" upper="1.5707" />
+  </joint>
+  <transmission name="tran_l_shoulder_roll">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="l_shoulder_roll">
+      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="motor_l_shoulder_roll">
+      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+
+  <link name="l_upper_arm">
+    <visual name="upper_arm">
+      <origin xyz="0 -10.5e-3 20e-3" rpy="0 1.5707 1.5707"/>
+      <geometry>
+      	<mesh filename="package://b3w_walker/models/b3w_walker/stl/arm-upper_arm-1.STL" scale="1e-3 1e-3 1e-3"/>
+      </geometry>
+      <material name="white">
+	<color rgba="1 1 1 1"/>
+      </material>
+    </visual>
+    <visual name="type2-1">
+      <origin xyz="0 -10.5e-3 20e-3" rpy="0 1.5707 1.5707"/>
+      <geometry>
+      	<mesh filename="package://b3w_walker/models/b3w_walker/stl/arm-type2-1.STL" scale="1e-3 1e-3 1e-3"/>
+      </geometry>
+      <material name="black">
+	<color rgba="0 0 0 1"/>
+      </material>
+    </visual>
+    <visual name="type2-2">
+      <origin xyz="0 -10.5e-3 20e-3" rpy="0 1.5707 1.5707"/>
+      <geometry>
+      	<mesh filename="package://b3w_walker/models/b3w_walker/stl/arm-type2-2.STL" scale="1e-3 1e-3 1e-3"/>
+      </geometry>
+      <material name="black">
+	<color rgba="0 0 0 1"/>
+      </material>
+    </visual>
+    <collision name="collision">
+      <origin xyz="-37.5e-3 0 -39.31e-3" rpy="0 0 0"/>
+      <geometry>
+	<box size="37e-3 21e-3 119e-3"/>
+      </geometry>
+    </collision>
+    <inertial>
+      <origin xyz="-28.23e-3 0 -39.5e-3" rpy="0 1.5707 1.5707"/>
+      <mass value="91.78e-3"/>
+      <inertia ixx="21303.42e-9" iyy="107781.77e-9" izz="122945.47e-9" ixy="0" iyz="0" ixz="0"/>
+    </inertial>
+  </link>
+  <gazebo reference="l_upper_arm">
+      <selfCollide>true</selfCollide>
+  </gazebo>
+  
+  <joint name="l_elbow_roll" type="revolute">
+    <origin xyz="0 0 -79e-3" rpy="0 0 0"/>
+    <parent link="l_upper_arm"/>
+    <child link="l_lower_arm"/>
+    <axis xyz="-1 0 0"/>
+    <limit effort="0.4" velocity="1.5707" lower="-1.5707" upper="1.5707" />
+  </joint>
+  <transmission name="tran_l_elbow_roll">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="l_elbow_roll">
+      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="motor_l_elbow_roll">
+      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+
+  <link name="l_lower_arm">
+    <visual name="box">
+      <origin xyz="3e-3 -10.5e-3 -30e-3" rpy="1.5707 0 3.1415"/>
+      <geometry>
+	<mesh filename="package://b3w_walker/models/b3w_walker/stl/hinge.STL" scale="1e-3 1e-3 1e-3"/>
+      </geometry>
+      <material name="white">
+	<color rgba="1 1 1 1"/>
+      </material>
+    </visual>
+    <collision name="collision">
+      <origin xyz="-28e-3 0 -9e-3" rpy="0 0 0"/>
+      <geometry>
+	<box size="62e-3 21e-3 42e-3"/>
+      </geometry>
+    </collision>
+    <inertial>
+      <origin xyz="-27.91e-3 0 -16.74e-3" rpy="1.5707 0 3.1415"/>
+      <mass value="8.75e-3"/>
+      <inertia ixx="1894.18e-9" iyy="5884.31e-9" izz="7125.94e-9" ixy="-13.72e-9" iyz="0" ixz="0"/>
+    </inertial>
+  </link>
+  <gazebo reference="l_lower_arm">
+      <selfCollide>true</selfCollide>
+  </gazebo>
+
+  <joint name="l_arm_fixed" type="revolute">
+    <origin xyz="-28e-3 0 -30e-3" rpy="0 0 0"/>
+    <parent link="l_lower_arm"/>
+    <child link="l_arm_endcoords"/>
+    <axis xyz="0 1 0"/>
+    <limit effort="0" velocity="0" lower="0" upper="0.01" />
+  </joint>
+ 
+  <link name="l_arm_endcoords">
+  </link>
+  
+
+
+
+
+
+
+  <!-- <right leg/> -->
+  <joint name="r_footjoint_roll" type="revolute">
+    <origin xyz="28e-3 -30e-3 -33e-3" rpy="0 0 0"/>
+    <parent link="base_link"/>
+    <child link="r_thigh"/>
+    <axis xyz="1 0 0"/>
+    <limit effort="0.4" velocity="1.5707" lower="-0.7854" upper="0.7854" />
+  </joint>
+  <transmission name="tran_r_footjoint_roll">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="r_footjoint_roll">
+      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="motor_r_footjoint_roll">
+      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+
+  <link name="r_thigh">
+    <visual name="r_thigh">
+      <origin xyz="5e-3 20e-3 10.5e-3" rpy="0 3.1415 1.5707"/>
+      <geometry>
+      	<mesh filename="package://b3w_walker/models/b3w_walker/stl/r_thigh.STL" scale="1e-3 1e-3 1e-3"/>
+      </geometry>
+      <material name="white">
+  	<color rgba="1 1 1 1"/>
+      </material>
+    </visual>
+    <visual name="type2-1">
+      <origin xyz="5e-3 20e-3 10.5e-3" rpy="0 3.1415 1.5707"/>
+      <geometry>
+      	<mesh filename="package://b3w_walker/models/b3w_walker/stl/r_thigh-type2-1.STL" scale="1e-3 1e-3 1e-3"/>
+      </geometry>
+      <material name="black">
+  	<color rgba="0 0 0 1"/>
+      </material>
+    </visual>
+    <visual name="type2-2">
+      <origin xyz="5e-3 20e-3 10.5e-3" rpy="0 3.1415 1.5707"/>
+      <geometry>
+      	<mesh filename="package://b3w_walker/models/b3w_walker/stl/r_thigh-type2-2.STL" scale="1e-3 1e-3 1e-3"/>
+      </geometry>
+      <material name="black">
+  	<color rgba="0 0 0 1"/>
+      </material>
+    </visual>
+    <collision name="collision">
+      <origin xyz="-30e-3 -10.5e-3 -10.5e-3" rpy="0 0 0"/>
+      <geometry>
+  	<box size="70e-3 61e-3 42e-3"/>
+      </geometry>
+    </collision>
+    <inertial>
+      <origin xyz="-27.04e-3 -11.99e-3 -10.54e-3" rpy="0 3.1415 1.5707"/>
+      <mass value="95.76e-3"/>
+      <inertia ixx="35785.97e-9" iyy="35507.30e-9" izz="44004.92e-9" ixy="1232.13e-9" iyz="-1392.7e-9" ixz="1621.84e-9"/>
+    </inertial>
+  </link>
+  <gazebo reference="r_thigh">
+      <selfCollide>true</selfCollide>
+  </gazebo>
+
+  <joint name="r_footjoint_pitch" type="revolute">
+    <origin xyz="-15e-3 15e-3 -21e-3" rpy="0 0 0"/>
+    <parent link="r_thigh"/>
+    <child link="r_uf_bone"/>
+    <axis xyz="0 -1 0"/>
+    <limit effort="0.4" velocity="1.5707" lower="-1.5707" upper="1.5707" />
+  </joint>
+  <transmission name="tran_r_footjoint_pitch">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="r_footjoint_pitch">
+      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="motor_r_footjoint_pitch">
+      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+
+  <link name="r_uf_bone">
+    <visual name="l_bone">
+      <origin xyz="0 1.5e-3 -37.5e-3" rpy="0 0 0"/>
+      <geometry>
+      	<box size="10e-3 3e-3 85e-3"/>
+      </geometry>
+      <material name="grey">
+  	<color rgba="0.5 0.5 0.5 1"/>
+      </material>
+    </visual>
+    <visual name="r_bone">
+      <origin xyz="0 -57.5e-3 -37.5e-3" rpy="0 0 0"/>
+      <geometry>
+      	<box size="10e-3 3e-3 85e-3"/>
+      </geometry>
+      <material name="grey">
+  	<color rgba="0.5 0.5 0.5 1"/>
+      </material>
+    </visual>
+    <collision name="collision">
+      <origin xyz="0 -28e-3 -37.5e-3" rpy="0 0 0"/>
+      <geometry>
+      	<box size="10e-3 62e-3 85e-3"/>
+      </geometry>
+    </collision>
+    <inertial>
+      <origin xyz="0 -28e-3 -37.5e-3" rpy="0 0 0"/>
+      <mass value="5.2e-3"/>
+      <inertia ixx="7662.98e-9" iyy="3125.39e-9" izz="4574.29e-9" ixy="0" iyz="0" ixz="0"/>
+    </inertial>
+  </link>
+  <gazebo reference="r_uf_bone">
+      <selfCollide>true</selfCollide>
+  </gazebo>
+  
+  <joint name="r_knee_pitch" type="revolute">
+    <origin xyz="0 -56e-3 -75e-3" rpy="0 0 0"/>
+    <parent link="r_uf_bone"/>
+    <child link="r_knee"/>
+    <axis xyz="0 -1 0"/>
+    <limit effort="0.4" velocity="1.5707" lower="-1.5707" upper="1.5707" />
+  </joint>
+  <transmission name="tran_r_knee_pitch">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="r_knee_pitch">
+      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="motor_r_knee_pitch">
+      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+
+  <link name="r_knee">
+    <visual name="r_knee">
+      <origin xyz="10.5e-3 56e-3 20e-3" rpy="0 1.5707 3.1415"/>
+      <geometry>
+      	<mesh filename="package://b3w_walker/models/b3w_walker/stl/servo-servo-1.STL" scale="1e-3 1e-3 1e-3"/>
+      </geometry>
+      <material name="white">
+  	<color rgba="1 1 1 1"/>
+      </material>
+    </visual>
+    <visual name="type2">
+      <origin xyz="10.5e-3 56e-3 20e-3" rpy="0 1.5707 3.1415"/>
+      <geometry>
+      	<mesh filename="package://b3w_walker/models/b3w_walker/stl/servo-type2-1.STL" scale="1e-3 1e-3 1e-3"/>
+      </geometry>
+      <material name="black">
+  	<color rgba="0 0 0 1"/>
+      </material>
+    </visual>
+    <collision name="collision">
+      <origin xyz="0 28e-3 -10.5e-3" rpy="0 0 0"/>
+      <geometry>
+  	<box size="21e-3 56e-3 61e-3"/>
+      </geometry>
+    </collision>
+    <inertial>
+      <origin xyz="0 28.25e-3 -9.82e-3" rpy="0 1.5707 3.1415"/>
+      <mass value="46.9e-3"/>
+      <inertia ixx="10909.33e-9" iyy="12516.16e-9" izz="20276.66e-9" ixy="-702.81e-9" iyz="0" ixz="0"/>
+    </inertial>
+  </link>
+  <gazebo reference="r_knee">
+      <selfCollide>true</selfCollide>
+  </gazebo>
+
+  <joint name="r_knee_fixed" type="revolute">
+    <origin xyz="0 33e-3 -41e-3" rpy="0 0 0"/>
+    <parent link="r_knee"/>
+    <child link="r_knee_hinge"/>
+    <axis xyz="0 1 0"/>
+    <limit effort="0" velocity="0" lower="0" upper="0.01" />
+  </joint>
+
+  <link name="r_knee_hinge">
+    <visual name="hinge">
+      <origin xyz="10.5e-3 -36e-3 0" rpy="-1.5707 0 1.5707"/>
+      <geometry>
+	<mesh filename="package://b3w_walker/models/b3w_walker/stl/hinge_c.STL" scale="1e-3 1e-3 1e-3"/>
+      </geometry>
+      <material name="white">
+  	<color rgba="1 1 1 1"/>
+      </material>
+    </visual>
+    <collision name="collision">
+      <origin xyz="0 -5e-3 -20.25e-3" rpy="0 0 0"/>
+      <geometry>
+      	<box size="21e-3 62e-3 40.5e-3"/>
+      </geometry>
+    </collision>
+    <inertial>
+      <origin xyz="0 -5.09e-3 -11.74e-3" rpy="-1.5707 0 1.5707"/>
+      <mass value="8.26e-3"/>
+      <inertia ixx="1515.9e-9" iyy="5436.69e-9" izz="6354.97e-9" ixy="-14.97e-9" iyz="0" ixz="0"/>
+    </inertial>
+  </link>
+  <gazebo reference="r_knee_hinge">
+      <selfCollide>true</selfCollide>
+  </gazebo>
+
+  <joint name="r_ankle_pitch" type="revolute">
+    <origin xyz="0 -33e-3 -30e-3" rpy="0 0 0"/>
+    <parent link="r_knee_hinge"/>
+    <child link="r_ankle"/>
+    <axis xyz="0 -1 0"/>
+    <limit effort="0.4" velocity="1.5707" lower="-1.5707" upper="1.5707" />
+  </joint>
+  <transmission name="tran_r_ankle_pitch">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="r_ankle_pitch">
+      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="motor_r_ankle_pitch">
+      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+
+  <link name="r_ankle">
+    <visual name="r_ankle">
+      <origin xyz="20e-3 -5e-3 -31.5e-3" rpy="0 0 1.5707"/>
+      <geometry>
+      	<mesh filename="package://b3w_walker/models/b3w_walker/stl/r_ankle.STL" scale="1e-3 1e-3 1e-3"/>
+      </geometry>
+      <material name="white">
+  	<color rgba="1 1 1 1"/>
+      </material>
+    </visual>
+    <visual name="type2-1">
+      <origin xyz="20e-3 -5e-3 -31.5e-3" rpy="0 0 1.5707"/>
+      <geometry>
+      	<mesh filename="package://b3w_walker/models/b3w_walker/stl/r_ankle_type2-1.STL" scale="1e-3 1e-3 1e-3"/>
+      </geometry>
+      <material name="black">
+  	<color rgba="0 0 0 1"/>
+      </material>
+    </visual>
+    <visual name="type2-2">
+      <origin xyz="20e-3 -5e-3 -31.5e-3" rpy="0 0 1.5707"/>
+      <geometry>
+      	<mesh filename="package://b3w_walker/models/b3w_walker/stl/r_ankle_type2-2.STL" scale="1e-3 1e-3 1e-3"/>
+      </geometry>
+      <material name="black">
+  	<color rgba="0 0 0 1"/>
+      </material>
+    </visual>
+    <collision name="collision">
+      <origin xyz="-15e-3 30e-3 -10.5e-3" rpy="0 0 0"/>
+      <geometry>
+  	<box size="70e-3 61e-3 42e-3"/>
+      </geometry>
+    </collision>
+    <inertial>
+      <origin xyz="-12.08e-3 27.62e-3 -10.86e-3" rpy="0 0 1.5707"/>
+      <mass value="96.15e-3"/>
+      <inertia ixx="36875.99e-9" iyy="36382.18e-9" izz="44211.91e-9" ixy="-130.16e-9" iyz="-1342.61e-9" ixz="1097.22e-9"/>
+    </inertial>
+  </link>
+  <gazebo reference="r_ankle">
+      <selfCollide>true</selfCollide>
+  </gazebo>
+  
+  <joint name="r_ankle_roll" type="revolute">
+    <origin xyz="15e-3 36e-3 -20e-3" rpy="0 0 0"/>
+    <parent link="r_ankle"/>
+    <child link="r_foot"/>
+    <axis xyz="-1 0 0"/>
+    <limit effort="0.4" velocity="1.5707" lower="-0.3927" upper="0.3927" />
+  </joint>
+  <transmission name="tran_r_ankle_roll">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="r_ankle_roll">
+      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="motor_r_ankle_roll">
+      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+
+  <link name="r_foot">
+    <visual name="r_foot">
+      <origin xyz="-108e-3 -40e-3 -36e-3" rpy="0 0 0"/>
+      <geometry>
+      	<mesh filename="package://b3w_walker/models/b3w_walker/stl/r_bottom-r_foot-1.STL" scale="1e-3 1e-3 1e-3"/>
+      </geometry>
+      <material name="white">
+  	<color rgba="1 1 1 1"/>
+      </material>
+    </visual>
+    <visual name="r_foot_bottom">
+      <origin xyz="-108e-3 -40e-3 -36e-3" rpy="0 0 0"/>
+      <geometry>
+      	<mesh filename="package://b3w_walker/models/b3w_walker/stl/r_bottom-bottom-1.STL" scale="1e-3 1e-3 1e-3"/>
+      </geometry>
+      <material name="white">
+  	<color rgba="1 1 1 1"/>
+      </material>
+    </visual>
+    <collision name="collision">
+      <origin xyz="-28e-3 -10e-3 -33e-3" rpy="0 0 0"/>
+      <geometry>
+  	<box size="160e-3 60e-3 6e-3"/>
+      </geometry>
+    </collision>
+    <inertial>
+      <origin xyz="-28.02e-3 -9.26e-3 -30.82e-3" rpy="0 0 0"/>
+      <mass value="43.42e-3"/>
+      <inertia ixx="13643.46e-9" iyy="73903.25e-9" izz="81281.84e-9" ixy="-7.59e-9" iyz="771.74e-9" ixz="-25.56e-9"/>
+    </inertial>
+  </link>
+  <gazebo reference="r_foot">
+    <selfCollide>true</selfCollide>
+    <mu1 value="1.0"/>
+    <mu2 value="1.0"/>
+  </gazebo>
+
+  <joint name="r_foot_fixed" type="revolute">
+    <origin xyz="-28e-3 -10e-3 -36e-3" rpy="0 0 0"/>
+    <parent link="r_foot"/>
+    <child link="r_foot_endcoords"/>
+    <axis xyz="0 1 0"/>
+    <limit effort="0" velocity="0" lower="0" upper="0.01" />
+  </joint>
+  <link name="r_foot_endcoords">
+  </link>
+
+  <!-- <left leg/> -->
+  <joint name="l_footjoint_roll" type="revolute">
+    <origin xyz="28e-3 30e-3 -33e-3" rpy="0 0 0"/>
+    <parent link="base_link"/>
+    <child link="l_thigh"/>
+    <axis xyz="1 0 0"/>
+    <limit effort="0.4" velocity="1.5707" lower="-0.7854" upper="0.7854" />
+  </joint>
+  <transmission name="tran_l_footjoint_roll">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="l_footjoint_roll">
+      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="motor_l_footjoint_roll">
+      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+
+  <link name="l_thigh">
+    <visual name="l_thigh">
+      <origin xyz="5e-3 41e-3 10.5e-3" rpy="0 3.1415 1.5707"/>
+      <geometry>
+      	<mesh filename="package://b3w_walker/models/b3w_walker/stl/l_thigh.STL" scale="1e-3 1e-3 1e-3"/>
+      </geometry>
+      <material name="white">
+  	<color rgba="1 1 1 1"/>
+      </material>
+    </visual>
+    <visual name="type2-3">
+      <origin xyz="5e-3 41e-3 10.5e-3" rpy="0 3.1415 1.5707"/>
+      <geometry>
+      	<mesh filename="package://b3w_walker/models/b3w_walker/stl/l_thigh-type2-3.STL" scale="1e-3 1e-3 1e-3"/>
+      </geometry>
+      <material name="black">
+  	<color rgba="0 0 0 1"/>
+      </material>
+    </visual>
+    <visual name="type2-4">
+      <origin xyz="5e-3 41e-3 10.5e-3" rpy="0 3.1415 1.5707"/>
+      <geometry>
+      	<mesh filename="package://b3w_walker/models/b3w_walker/stl/l_thigh-type2-4.STL" scale="1e-3 1e-3 1e-3"/>
+      </geometry>
+      <material name="black">
+  	<color rgba="0 0 0 1"/>
+      </material>
+    </visual>
+    <collision name="collision">
+      <origin xyz="-30e-3 10.5e-3 -10.5e-3" rpy="0 0 0"/>
+      <geometry>
+  	<box size="70e-3 61e-3 42e-3"/>
+      </geometry>
+    </collision>
+    <inertial>
+      <origin xyz="-27.04e-3 11.99e-3 -10.54e-3" rpy="0 3.1415 1.5707"/>
+      <mass value="95.76e-3"/>
+      <inertia ixx="35785.97e-9" iyy="35507.30e-9" izz="44004.92e-9" ixy="-1232.13e-9" iyz="-1392.7e-9" ixz="-1621.84e-9"/>
+    </inertial>
+  </link>
+  <gazebo reference="l_thigh">
+      <selfCollide>true</selfCollide>
+  </gazebo>
+
+  <joint name="l_footjoint_pitch" type="revolute">
+    <origin xyz="-15e-3 -15e-3 -21e-3" rpy="0 0 0"/>
+    <parent link="l_thigh"/>
+    <child link="l_uf_bone"/>
+    <axis xyz="0 1 0"/>
+    <limit effort="0.4" velocity="1.5707" lower="-1.5707" upper="1.5707" />
+  </joint>
+  <transmission name="tran_l_footjoint_pitch">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="l_footjoint_pitch">
+      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="motor_l_footjoint_pitch">
+      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+
+  <link name="l_uf_bone">
+    <visual name="r_bone">
+      <origin xyz="0 -1.5e-3 -37.5e-3" rpy="0 0 0"/>
+      <geometry>
+      	<box size="10e-3 3e-3 85e-3"/>
+      </geometry>
+      <material name="grey">
+  	<color rgba="0.5 0.5 0.5 1"/>
+      </material>
+    </visual>
+    <visual name="l_bone">
+      <origin xyz="0 57.5e-3 -37.5e-3" rpy="0 0 0"/>
+      <geometry>
+      	<box size="10e-3 3e-3 85e-3"/>
+      </geometry>
+      <material name="grey">
+  	<color rgba="0.5 0.5 0.5 1"/>
+      </material>
+    </visual>
+    <collision name="collision">
+      <origin xyz="0 28e-3 -37.5e-3" rpy="0 0 0"/>
+      <geometry>
+      	<box size="10e-3 62e-3 85e-3"/>
+      </geometry>
+    </collision>
+    <inertial>
+      <origin xyz="0 28e-3 -37.5e-3" rpy="0 0 0"/>
+      <mass value="5.2e-3"/>
+      <inertia ixx="7662.98e-9" iyy="3125.39e-9" izz="4574.29e-9" ixy="0" iyz="0" ixz="0"/>
+    </inertial>
+  </link>
+  <gazebo reference="l_uf_bone">
+      <selfCollide>true</selfCollide>
+  </gazebo>
+
+  <joint name="l_knee_pitch" type="revolute">
+    <origin xyz="0 56e-3 -75e-3" rpy="0 0 0"/>
+    <parent link="l_uf_bone"/>
+    <child link="l_knee"/>
+    <axis xyz="0 1 0"/>
+    <limit effort="0.4" velocity="1.5707" lower="-1.5707" upper="1.5707" />
+  </joint>
+  <transmission name="tran_l_knee_pitch">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="l_knee_pitch">
+      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="motor_l_knee_pitch">
+      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+
+  <link name="l_knee">
+    <visual name="l_knee">
+      <origin xyz="-10.5e-3 -56e-3 20e-3" rpy="0 1.5707 0"/>
+      <geometry>
+      	<mesh filename="package://b3w_walker/models/b3w_walker/stl/servo-servo-1.STL" scale="1e-3 1e-3 1e-3"/>
+      </geometry>
+      <material name="white">
+  	<color rgba="1 1 1 1"/>
+      </material>
+    </visual>
+    <visual name="type2">
+      <origin xyz="-10.5e-3 -56e-3 20e-3" rpy="0 1.5707 0"/>
+      <geometry>
+      	<mesh filename="package://b3w_walker/models/b3w_walker/stl/servo-type2-1.STL" scale="1e-3 1e-3 1e-3"/>
+      </geometry>
+      <material name="black">
+  	<color rgba="0 0 0 1"/>
+      </material>
+    </visual>
+    <collision name="collision">
+      <origin xyz="0 -28e-3 -10.5e-3" rpy="0 0 0"/>
+      <geometry>
+  	<box size="21e-3 56e-3 61e-3"/>
+      </geometry>
+    </collision>
+    <inertial>
+      <origin xyz="0 -28.25e-3 -9.82e-3" rpy="0 1.5707 0"/>
+      <mass value="46.9e-3"/>
+      <inertia ixx="10909.33e-9" iyy="12516.16e-9" izz="20276.66e-9" ixy="-702.81e-9" iyz="0" ixz="0"/>
+    </inertial>
+  </link>
+  <gazebo reference="l_knee">
+      <selfCollide>true</selfCollide>
+  </gazebo>
+
+  <joint name="l_knee_fixed" type="revolute">
+    <origin xyz="0 -33e-3 -41e-3" rpy="0 0 0"/>
+    <parent link="l_knee"/>
+    <child link="l_knee_hinge"/>
+    <axis xyz="0 1 0"/>
+    <limit effort="0" velocity="0" lower="0" upper="0.01" />
+  </joint>
+
+  <link name="l_knee_hinge">
+    <visual name="hinge">
+      <origin xyz="-10.5e-3 36e-3 0" rpy="-1.5707 0 -1.5707"/>
+      <geometry>
+	<mesh filename="package://b3w_walker/models/b3w_walker/stl/hinge_c.STL" scale="1e-3 1e-3 1e-3"/>
+      </geometry>
+      <material name="white">
+  	<color rgba="1 1 1 1"/>
+      </material>
+    </visual>
+    <collision name="collision">
+      <origin xyz="0 5e-3 -20.25e-3" rpy="0 0 0"/>
+      <geometry>
+      	<box size="21e-3 62e-3 40.5e-3"/>
+      </geometry>
+    </collision>
+    <inertial>
+      <origin xyz="0 5.09e-3 -11.74e-3" rpy="-1.5707 0 -1.5707"/>
+      <mass value="8.26e-3"/>
+      <inertia ixx="1515.9e-9" iyy="5436.69e-9" izz="6354.97e-9" ixy="-14.97e-9" iyz="0" ixz="0"/>
+    </inertial>
+  </link>
+  <gazebo reference="l_knee_hinge">
+      <selfCollide>true</selfCollide>
+  </gazebo>
+
+  <joint name="l_ankle_pitch" type="revolute">
+    <origin xyz="0 33e-3 -30e-3" rpy="0 0 0"/>
+    <parent link="l_knee_hinge"/>
+    <child link="l_ankle"/>
+    <axis xyz="0 1 0"/>
+    <limit effort="0.4" velocity="1.5707" lower="-1.5707" upper="1.5707" />
+  </joint>
+  <transmission name="tran_l_ankle_pitch">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="l_ankle_pitch">
+      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="motor_l_ankle_pitch">
+      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+
+  <link name="l_ankle">
+    <visual name="l_ankle">
+      <origin xyz="20e-3 -56e-3 -31.5e-3" rpy="0 0 1.5707"/>
+      <geometry>
+      	<mesh filename="package://b3w_walker/models/b3w_walker/stl/l_ankle.STL" scale="1e-3 1e-3 1e-3"/>
+      </geometry>
+      <material name="white">
+  	<color rgba="1 1 1 1"/>
+      </material>
+    </visual>
+    <visual name="type2-4">
+      <origin xyz="20e-3 -56e-3 -31.5e-3" rpy="0 0 1.5707"/>
+      <geometry>
+      	<mesh filename="package://b3w_walker/models/b3w_walker/stl/l_ankle_type2-4.STL" scale="1e-3 1e-3 1e-3"/>
+      </geometry>
+      <material name="black">
+  	<color rgba="0 0 0 1"/>
+      </material>
+    </visual>
+    <visual name="type2-5">
+      <origin xyz="20e-3 -56e-3 -31.5e-3" rpy="0 0 1.5707"/>
+      <geometry>
+      	<mesh filename="package://b3w_walker/models/b3w_walker/stl/l_ankle_type2-5.STL" scale="1e-3 1e-3 1e-3"/>
+      </geometry>
+      <material name="black">
+  	<color rgba="0 0 0 1"/>
+      </material>
+    </visual>
+    <collision name="collision">
+      <origin xyz="-15e-3 -30e-3 -10.5e-3" rpy="0 0 0"/>
+      <geometry>
+  	<box size="70e-3 61e-3 42e-3"/>
+      </geometry>
+    </collision>
+    <inertial>
+      <origin xyz="-12.08e-3 -27.62e-3 -10.86e-3" rpy="0 0 1.5707"/>
+      <mass value="96.15e-3"/>
+      <inertia ixx="36875.99e-9" iyy="36382.18e-9" izz="44211.91e-9" ixy="130.16e-9" iyz="-1342.61e-9" ixz="-1097.22e-9"/>
+    </inertial>
+  </link>
+  <gazebo reference="l_ankle">
+      <selfCollide>true</selfCollide>
+  </gazebo>
+
+  <joint name="l_ankle_roll" type="revolute">
+    <origin xyz="15e-3 -36e-3 -20e-3" rpy="0 0 0"/>
+    <parent link="l_ankle"/>
+    <child link="l_foot"/>
+    <axis xyz="-1 0 0"/>
+    <limit effort="0.4" velocity="1.5707" lower="-0.3927" upper="0.3927" />
+  </joint>
+  <transmission name="tran_l_ankle_roll">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="l_ankle_roll">
+      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="motor_l_ankle_roll">
+      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+
+  <link name="l_foot">
+    <visual name="l_foot">
+      <origin xyz="-108e-3 -20e-3 -36e-3" rpy="0 0 0"/>
+      <geometry>
+      	<mesh filename="package://b3w_walker/models/b3w_walker/stl/l_bottom-r_foot-2.STL" scale="1e-3 1e-3 1e-3"/>
+      </geometry>
+      <material name="white">
+  	<color rgba="1 1 1 1"/>
+      </material>
+    </visual>
+    <visual name="l_foot_bottom">
+      <origin xyz="-108e-3 -20e-3 -36e-3" rpy="0 0 0"/>
+      <geometry>
+      	<mesh filename="package://b3w_walker/models/b3w_walker/stl/l_bottom-bottom-2.STL" scale="1e-3 1e-3 1e-3"/>
+      </geometry>
+      <material name="white">
+  	<color rgba="1 1 1 1"/>
+      </material>
+    </visual>
+    <collision name="collision">
+      <origin xyz="-28e-3 10e-3 -33e-3" rpy="0 0 0"/>
+      <geometry>
+  	<box size="160e-3 60e-3 6e-3"/>
+      </geometry>
+    </collision>
+    <inertial>
+      <origin xyz="-28.02e-3 9.26e-3 -30.82e-3" rpy="0 0 0"/>
+      <mass value="43.42e-3"/>
+      <inertia ixx="13643.46e-9" iyy="73903.25e-9" izz="81281.84e-9" ixy="7.59e-9" iyz="-771.74e-9" ixz="-25.56e-9"/>
+    </inertial>
+  </link>
+  <gazebo reference="l_foot">
+    <selfCollide>true</selfCollide>
+    <mu1 value="1.0"/>
+    <mu2 value="1.0"/>
+  </gazebo>
+
+  <joint name="l_foot_fixed" type="revolute">
+    <origin xyz="-28e-3 10e-3 -36e-3" rpy="0 0 0"/>
+    <parent link="l_foot"/>
+    <child link="l_foot_endcoords"/>
+    <axis xyz="0 1 0"/>
+    <limit effort="0" velocity="0" lower="0" upper="0.01" />
+  </joint>
+  <link name="l_foot_endcoords">
+  </link>
+
+
+
+  
+</robot>

@@ -1,0 +1,25 @@
+gazebo_ros_control:
+  pid_gains:
+    r_shoulder_pitch: {p: 3.0, i: 0.01, d: 0.01}
+    r_shoulder_roll: {p: 3.0, i: 0.01, d: 0.01}
+    r_elbow_roll: {p: 3.0, i: 0.01, d: 0.01}
+    l_shoulder_pitch: {p: 3.0, i: 0.01, d: 0.01}
+    l_shoulder_roll: {p: 3.0, i: 0.01, d: 0.01}
+    l_elbow_roll: {p: 3.0, i: 0.01, d: 0.01}
+    r_footjoint_roll: {p: 3.0, i: 0.01, d: 0.01}
+    r_footjoint_pitch: {p: 3.0, i: 0.01, d: 0.01}
+    r_b_footjoint_pitch: {p: 3.0, i: 0.01, d: 0.01}
+    r_uf_knee: {p: 3.0, i: 0.01, d: 0.01}
+    r_db_knee: {p: 3.0, i: 0.01, d: 0.01}
+    r_df_knee: {p: 3.0, i: 0.01, d: 0.01}
+    r_ankle_pitch: {p: 3.0, i: 0.01, d: 0.01}
+    r_ankle_roll: {p: 3.0, i: 0.01, d: 0.01}
+    l_footjoint_roll: {p: 3.0, i: 0.01, d: 0.01}
+    l_footjoint_pitch: {p: 3.0, i: 0.01, d: 0.01}
+    l_b_footjoint_pitch: {p: 3.0, i: 0.01, d: 0.01}
+    l_uf_knee: {p: 3.0, i: 0.01, d: 0.01}
+    l_db_knee: {p: 3.0, i: 0.01, d: 0.01}
+    l_df_knee: {p: 3.0, i: 0.01, d: 0.01}
+    l_ankle_pitch: {p: 3.0, i: 0.01, d: 0.01}
+    l_ankle_roll: {p: 3.0, i: 0.01, d: 0.01}
+    

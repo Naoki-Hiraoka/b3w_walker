@@ -1,0 +1,148 @@
+# joint_limits.yaml allows the dynamics properties specified in the URDF to be overwritten or augmented as needed
+# Specific joint properties can be changed with the keys [max_position, min_position, max_velocity, max_acceleration]
+# Joint limits can be turned off with [has_velocity_limits, has_acceleration_limits]
+joint_limits:
+  l_ankle_pitch:
+    max_position: 0.5
+    min_position: -0.5
+    has_velocity_limits: true
+    max_velocity: 1.5707
+    has_acceleration_limits: true
+    max_acceleration: 1.5707
+  l_ankle_roll:
+    max_position: 0.2
+    min_position: -0.2
+    has_velocity_limits: true
+    max_velocity: 1.5707
+    has_acceleration_limits: true
+    max_acceleration: 0.7854
+  l_b_footjoint_pitch:
+    max_position: 0.5
+    min_position: -0.5
+    has_velocity_limits: true
+    max_velocity: 1.5707
+    has_acceleration_limits: true
+    max_acceleration: 1.5707
+  l_db_knee:
+    max_position: 0.5
+    min_position: -0.5
+    has_velocity_limits: true
+    max_velocity: 1.5707
+    has_acceleration_limits: true
+    max_acceleration: 1.5707
+  l_df_knee:
+    max_position: 0.5
+    min_position: -0.5
+    has_velocity_limits: true
+    max_velocity: 1.5707
+    has_acceleration_limits: true
+    max_acceleration: 1.5707
+  l_elbow_roll:
+    max_position: 0.7853
+    min_position: -0.7853
+    has_velocity_limits: true
+    max_velocity: 1.5707
+    has_acceleration_limits: true
+    max_acceleration: 1.5707
+  l_footjoint_pitch:
+    max_position: 0.5
+    min_position: -0.5
+    has_velocity_limits: true
+    max_velocity: 1.5707
+    has_acceleration_limits: true
+    max_acceleration: 0.7854
+  l_footjoint_roll:
+    max_position: 0.3927
+    min_position: -0.3927
+    has_velocity_limits: true
+    max_velocity: 1.5707
+    has_acceleration_limits: true
+    max_acceleration: 1.5707
+  l_shoulder_pitch:
+    has_velocity_limits: true
+    max_velocity: 1.5707
+    has_acceleration_limits: true
+    max_acceleration: 1.5707
+  l_shoulder_roll:
+    has_velocity_limits: true
+    max_velocity: 1.5707
+    has_acceleration_limits: true
+    max_acceleration: 1.5707
+  l_uf_knee:
+    max_position: 0.5
+    min_position: -0.5
+    has_velocity_limits: true
+    max_velocity: 1.5707
+    has_acceleration_limits: true
+    max_acceleration: 1.5707
+  r_ankle_pitch:
+    max_position: 0.5
+    min_position: -0.5
+    has_velocity_limits: true
+    max_velocity: 1.5707
+    has_acceleration_limits: true
+    max_acceleration: 1.5707
+  r_ankle_roll:
+    max_position: 0.2
+    min_position: -0.2
+    has_velocity_limits: true
+    max_velocity: 1.5707
+    has_acceleration_limits: true
+    max_acceleration: 0.7854
+  r_b_footjoint_pitch:
+    max_position: 0.5
+    min_position: -0.5
+    has_velocity_limits: true
+    max_velocity: 1.5707
+    has_acceleration_limits: true
+    max_acceleration: 1.5707
+  r_db_knee:
+    max_position: 0.5
+    min_position: -0.5
+    has_velocity_limits: true
+    max_velocity: 1.5707
+    has_acceleration_limits: true
+    max_acceleration: 1.5707
+  r_df_knee:
+    max_position: 0.5
+    min_position: -0.5
+    has_velocity_limits: true
+    max_velocity: 1.5707
+    has_acceleration_limits: true
+    max_acceleration: 1.5707
+  r_elbow_roll:
+    has_velocity_limits: true
+    max_velocity: 1.5707
+    has_acceleration_limits: true
+    max_acceleration: 1.5707
+  r_footjoint_pitch:
+    max_position: 0.5
+    min_position: -0.5
+    has_velocity_limits: true
+    max_velocity: 1.5707
+    has_acceleration_limits: true
+    max_acceleration: 1.5707
+  r_footjoint_roll:
+    max_position: 0.3927
+    min_position: -0.3927
+    has_velocity_limits: true
+    max_velocity: 1.5707
+    has_acceleration_limits: true
+    max_acceleration: 0.7854
+  r_shoulder_pitch:
+    has_velocity_limits: true
+    max_velocity: 1.5707
+    has_acceleration_limits: true
+    max_acceleration: 1.5707
+  r_shoulder_roll:
+    has_velocity_limits: true
+    max_velocity: 1.5707
+    has_acceleration_limits: true
+    max_acceleration: 1.5707
+  r_uf_knee:
+    max_position: 0.5
+    min_position: -0.5
+    has_velocity_limits: true
+    max_velocity: 1.5707
+    has_acceleration_limits: true
+    max_acceleration: 1.5707

@@ -1,0 +1,107 @@
+    <!-- ********** new **********  -->
+    <joint name='l_ub_knee' type='revolute'>
+      <child>l_knee</child>
+      <parent>l_ub_bone</parent>
+      <pose>-0.045 0.056 0 0 0 0</pose>
+      <axis>
+        <xyz>0 -1 0</xyz>
+        <limit>
+          <lower>-1.5707</lower>
+          <upper>1.5707</upper>
+          <effort>0</effort>
+          <velocity>1.5707</velocity>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+        <use_parent_model_frame>1</use_parent_model_frame>
+      </axis>
+    </joint>
+
+
+    <!-- ************** new ************** -->
+    <joint name='l_b_ankle_pitch' type='revolute'>
+      <child>l_ankle</child>
+      <parent>l_db_bone</parent>
+      <pose>-0.045 -0.056 0 0 0 0</pose>
+      <axis>
+        <xyz>0 1 0</xyz>
+        <limit>
+          <lower>-1.5707</lower>
+          <upper>1.5707</upper>
+          <effort>0.4</effort>
+          <velocity>1.5707</velocity>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+        <use_parent_model_frame>1</use_parent_model_frame>
+      </axis>
+    </joint>
+
+
+    <!-- ********** new **********  -->
+    <joint name='r_ub_knee' type='revolute'>
+      <child>r_knee</child>
+      <parent>r_ub_bone</parent>
+      <pose>-0.045 -0.056 0 0 0 0</pose>
+      <axis>
+        <xyz>0 1 0</xyz>
+        <limit>
+          <lower>-1.5707</lower>
+          <upper>1.5707</upper>
+          <effort>0</effort>
+          <velocity>1.5707</velocity>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+        <use_parent_model_frame>1</use_parent_model_frame>
+      </axis>
+    </joint>
+
+
+    <!-- ************** new ************** -->
+    <joint name='r_b_ankle_pitch' type='revolute'>
+      <child>r_ankle</child>
+      <parent>r_db_bone</parent>
+      <pose>-0.045 0.056 0 0 0 0</pose>
+      <axis>
+        <xyz>0 -1 0</xyz>
+        <limit>
+          <lower>-1.5707</lower>
+          <upper>1.5707</upper>
+          <effort>0.4</effort>
+          <velocity>1.5707</velocity>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+        <use_parent_model_frame>1</use_parent_model_frame>
+      </axis>
+    </joint>
+
+
+
+
+
+
+
+
+
+
+
+
+	<surface>
+	  <friction>
+	    <ode>
+	      <mu>1.0</mu>
+	      <mu2>1.0</mu2>
+	    </ode>
+	  </friction>
+	</surface>
+	

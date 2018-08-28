@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<robot name="mesh">
+  <link name="base_link">
+    <visual name="visual">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+	<mesh filename="package://b3w_walker/models/b3w_walker/stl/r_ankle.STL" scale="0.001 0.001 0.001"/>
+      </geometry>
+    </visual>
+    <visual name="visual">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+	<mesh filename="package://b3w_walker/models/b3w_walker/stl/r_ankle_type2-1.STL" scale="0.001 0.001 0.001"/>
+      </geometry>
+    </visual>
+    <visual name="visual">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+	<box size="0.003 0.003 0.003"/>
+      </geometry>
+    </visual>
+  </link>
+</robot>

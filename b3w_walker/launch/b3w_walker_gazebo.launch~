@@ -1,0 +1,25 @@
+<launch>
+  <!-- gazebo -->
+  <include file="$(find gazebo_ros)/launch/empty_world.launch">
+    <arg name="world_name" value="$(find b3w_walker)/world/sample1.world"/>
+  </include>
+
+  <group ns="b3w_walker">
+    <!-- robot_desctiption -->
+    <param name="robot_description" command="cat $(find b3w_walker)/models/b3w_walker/model.urdf"/>
+  </group>
+  
+  <!-- spawn b3w_walker in gazebo -->
+  <rosparam file="$(find b3w_walker)/config/b3w_walker_gazebo.yaml" command="load"/>
+  <node name="spawn_model" pkg="gazebo_ros" type="spawn_model" args="-file $(find b3w_walker)/models/b3w_walker/model.sdf -sdf -model b3w_walker -z 0.28" />
+
+  <group ns="b3w_walker">
+    <!-- add controllers to b3w_walker-->
+    <rosparam file="$(find b3w_walker)/config/b3w_walker_control.yaml" command="load"/>
+    <node name="controller_spawner" pkg="controller_manager" type="spawner" respawn="false" output="screen" args="whole_body_controller joint_state_controller"/>
+
+    <!-- have b3w_walker strike the reset pose-->
+    <node name="reset_pose" pkg="b3w_walker" type="send_joint_goal.py" args="-r" output="screen"/>
+  </group>
+  
+</launch>

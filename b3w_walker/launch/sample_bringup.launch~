@@ -1,0 +1,10 @@
+<launch>
+  <param name="robot_description" command="cat $(find b3w_walker)/models/sample1/model.urdf"/>
+  <rosparam file="$(find b3w_walker)/config/sample_gazebo.yaml" command="load"/>
+  
+  <include file="$(find gazebo_ros)/launch/empty_world.launch">
+    <arg name="world_name" value="$(find b3w_walker)/world/sample1.world"/>
+  </include>
+
+  <node name="spawn_model" pkg="gazebo_ros" type="spawn_model" args="-file $(find b3w_walker)/models/sample1/test.sdf -sdf -model sample1" />
+</launch>

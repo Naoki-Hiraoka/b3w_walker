@@ -1,0 +1,13 @@
+sample1:
+  joint_state_controller:
+    type: joint_state_controller/JointStateController
+    publish_rate: 10
+
+  ld_hinge_controller:
+    type: position_controllers/JointPositionController
+    joint: ld_hinge
+     
+  lu_hinge_controller:
+    type: position_controllers/JointPositionController
+    joint: lu_hinge
+    

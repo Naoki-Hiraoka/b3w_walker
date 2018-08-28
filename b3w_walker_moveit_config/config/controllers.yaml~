@@ -1,0 +1,28 @@
+controller_list:
+  - name: whole_body_controller
+    action_ns: follow_joint_trajectory
+    type: FollowJointTrajectory
+    default: true
+    joints:
+      - r_shoulder_pitch
+      - r_shoulder_roll
+      - r_elbow_roll
+      - l_shoulder_pitch
+      - l_shoulder_roll
+      - l_elbow_roll
+      - r_footjoint_roll
+      - r_footjoint_pitch
+      - r_b_footjoint_pitch
+      - r_uf_knee
+      - r_df_knee
+      - r_db_knee
+      - r_ankle_pitch
+      - r_ankle_roll
+      - l_footjoint_roll
+      - l_footjoint_pitch
+      - l_b_footjoint_pitch
+      - l_uf_knee
+      - l_df_knee
+      - l_db_knee
+      - l_ankle_pitch
+      - l_ankle_roll

@@ -1,0 +1,6 @@
+rdf_loader::RDFLoader
+	RDFLoader(string robot_description)
+	boost::shared_ptr<srdf::Model>& getSRDF()
+	boost::shared_ptr<urdf::ModelInterface>& getURDF()
+
+robot_model::Robot_Model

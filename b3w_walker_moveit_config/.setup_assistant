@@ -1,0 +1,10 @@
+moveit_setup_assistant_config:
+  URDF:
+    package: b3w_walker
+    relative_path: models/b3w_walker/model.urdf
+  SRDF:
+    relative_path: config/b3w_walker.srdf
+  CONFIG:
+    author_name: Naoki Hiraoka
+    author_email: mail@mail.com
+    generated_timestamp: 1523441667

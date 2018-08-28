@@ -1,0 +1,5 @@
+<launch>
+  <param name="robot_description" command="cat $(find b3w_walker)/models/sample1/model.urdf"/>
+
+  <node name="HW" pkg="b3w_walker" type="sampleHW" output="screen" ns="sample1"/>
+</launch>

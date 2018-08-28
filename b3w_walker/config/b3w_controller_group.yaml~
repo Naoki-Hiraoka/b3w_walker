@@ -1,0 +1,8 @@
+b3w_walker:
+  joint_state_controller:
+    type: joint_state_controller/JointStateController
+    publish_rate: 50   
+  
+  joint_group_controller:
+    type: position_controllers/JointPositionController
+    joint: r_shoulder_pitch

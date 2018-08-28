@@ -1,0 +1,23 @@
+<launch>
+  <group ns="b3w_walker">
+    <!-- robot_desctiption -->
+    <param name="robot_description" command="cat $(find b3w_walker)/models/b3w_walker/model.urdf"/>
+
+    <!-- b3w_walker HW -->
+    <node name="b3w_walkerHW" pkg="b3w_walker" type="b3w_walkerHW" respawn="true" output="screen"/>
+    
+    <!-- add controllers to b3w_walker-->
+    <rosparam file="$(find b3w_walker)/config/b3w_walker_control.yaml" command="load"/>
+    <node name="controller_spawner" pkg="controller_manager" type="spawner" respawn="false" output="screen" args="whole_body_controller joint_state_controller"/>
+
+    <!-- have b3w_walker strike the reset pose-->
+    <node name="reset_pose" pkg="b3w_walker" type="send_joint_goal.py" args="-r" output="screen"/>
+
+    <!-- publish tf for b3w_walker's root-->
+    <node pkg="tf" type="static_transform_publisher" name="virtual_joint_broadcaster_0" args="0 0 0 0 0 0 odom_combined base_link 100" />
+    
+    <!-- publish tf for b3w_walker's links-->
+    <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" respawn="true" output="screen" />
+  </group>
+  
+</launch>

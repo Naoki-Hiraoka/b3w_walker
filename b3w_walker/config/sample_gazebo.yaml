@@ -1,0 +1,4 @@
+gazebo_ros_control:
+  pid_gains:
+    ld_hinge: {p: 10.0, i: 0.1, d: 0.1}
+    lu_hinge: {p: 10.0, i: 0.1, d: 0.1}

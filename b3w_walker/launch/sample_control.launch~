@@ -1,0 +1,12 @@
+<launch>
+  <rosparam file="$(find b3w_walker)/config/sample_control.yaml" command="load"/>
+
+  <node name="controller_spawner" pkg="controller_manager" type="spawner" respawn="false" output="screen" ns="sample1" args="ld_hinge_controller lu_hinge_controller joint_state_controller"/>
+
+  <!-- convert joint states to TF transforms for rviz, etc -->
+  <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher"
+  	respawn="false" output="screen">
+    <remap from="/joint_states" to="sample1/joint_states" />
+  </node>
+
+</launch>

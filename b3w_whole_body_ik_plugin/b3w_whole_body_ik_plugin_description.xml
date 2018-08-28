@@ -1,0 +1,17 @@
+<library path="lib/libb3w_whole_body_ik_plugin">
+  <class name="b3w_whole_body_ik_plugin/B3wWholeBodyIkPlugin" type="b3w_whole_body_ik_plugin::B3wWholeBodyIkPlugin" base_class_type="kinematics::KinematicsBase">
+    <description>
+      Non-chain inverse kinematics solver for MoveIt!
+    </description>
+  </class>
+  <class name="b3w_whole_body_ik_plugin/B3wTipsIkPlugin" type="b3w_whole_body_ik_plugin::B3wTipsIkPlugin" base_class_type="kinematics::KinematicsBase">
+    <description>
+      Non-chain inverse kinematics solver for MoveIt!
+    </description>
+  </class>
+  <class name="b3w_whole_body_ik_plugin/HumanoidConstraintSamplerAllocator" type="b3w_whole_body_ik_plugin::HumanoidConstraintSamplerAllocator" base_class_type="constraint_samplers::ConstraintSamplerAllocator">
+    <description>
+      Non-chain inverse kinematics solver for MoveIt!
+    </description>
+  </class>
+</library>

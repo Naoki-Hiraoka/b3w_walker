@@ -1,0 +1,1263 @@
+<sdf version='1.6'>
+  <model name='b3w_walker'>
+    <link name='base_link'>
+      <pose frame=''>0 0 0 0 -0 0</pose>
+      <inertial>
+        <pose frame=''>0.00023 0 0.03829 0 -0 0</pose>
+        <mass>0.24961</mass>
+        <inertia>
+          <ixx>0.000555553</ixx>
+          <ixy>-8.28571e-09</ixy>
+          <ixz>2.53843e-06</ixz>
+          <iyy>0.000469536</iyy>
+          <iyz>-2.44519e-10</iyz>
+          <izz>0.000269099</izz>
+        </inertia>
+      </inertial>
+      <collision name='base_link_fixed_joint_lump__collision_collision'>
+        <pose frame=''>0 0 0.072 0 -0 0</pose>
+        <geometry>
+          <box>
+            <size>0.068 0.08 0.15</size>
+          </box>
+        </geometry>
+      </collision>
+      <visual name='base_link_fixed_joint_lump__west_visual'>
+        <pose frame=''>0.0335 -0.0545 -0.043 0 -0 1.5707</pose>
+        <geometry>
+          <mesh>
+            <scale>0.001 0.001 0.001</scale>
+            <uri>model://b3w_walker/models/b3w_walker/stl/body-west-1.STL</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <visual name='base_link_fixed_joint_lump__r_foot_joint_visual_1'>
+        <pose frame=''>0.0335 -0.0545 -0.043 0 -0 1.5707</pose>
+        <geometry>
+          <mesh>
+            <scale>0.001 0.001 0.001</scale>
+            <uri>model://b3w_walker/models/b3w_walker/stl/body-r_foot_joint-1.STL</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <visual name='base_link_fixed_joint_lump__l_foot_joint_visual_2'>
+        <pose frame=''>0.0335 -0.0545 -0.043 0 -0 1.5707</pose>
+        <geometry>
+          <mesh>
+            <scale>0.001 0.001 0.001</scale>
+            <uri>model://b3w_walker/models/b3w_walker/stl/body-l_foot_joint-1.STL</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <visual name='base_link_fixed_joint_lump__chest_visual_3'>
+        <pose frame=''>0.0335 -0.0545 -0.043 0 -0 1.5707</pose>
+        <geometry>
+          <mesh>
+            <scale>0.001 0.001 0.001</scale>
+            <uri>model://b3w_walker/models/b3w_walker/stl/body-chest-1.STL</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <visual name='base_link_fixed_joint_lump__type2-1_visual_4'>
+        <pose frame=''>0.0335 -0.0545 -0.043 0 -0 1.5707</pose>
+        <geometry>
+          <mesh>
+            <scale>0.001 0.001 0.001</scale>
+            <uri>model://b3w_walker/models/b3w_walker/stl/body-type2-1.STL</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <visual name='base_link_fixed_joint_lump__type2-2_visual_5'>
+        <pose frame=''>0.0335 -0.0545 -0.043 0 -0 1.5707</pose>
+        <geometry>
+          <mesh>
+            <scale>0.001 0.001 0.001</scale>
+            <uri>model://b3w_walker/models/b3w_walker/stl/body-type2-2.STL</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <visual name='base_link_fixed_joint_lump__pi_visual_6'>
+        <pose frame=''>0.0335 -0.0545 -0.043 0 -0 1.5707</pose>
+        <geometry>
+          <mesh>
+            <scale>0.001 0.001 0.001</scale>
+            <uri>model://b3w_walker/models/b3w_walker/stl/body-pi-1.STL</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <visual name='base_link_fixed_joint_lump__pole-1_visual_7'>
+        <pose frame=''>0.0335 -0.0545 -0.043 0 -0 1.5707</pose>
+        <geometry>
+          <mesh>
+            <scale>0.001 0.001 0.001</scale>
+            <uri>model://b3w_walker/models/b3w_walker/stl/body-pole-1.STL</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <visual name='base_link_fixed_joint_lump__pole-2_visual_8'>
+        <pose frame=''>0.0335 -0.0545 -0.043 0 -0 1.5707</pose>
+        <geometry>
+          <mesh>
+            <scale>0.001 0.001 0.001</scale>
+            <uri>model://b3w_walker/models/b3w_walker/stl/body-pole-2.STL</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <visual name='base_link_fixed_joint_lump__pole-3_visual_9'>
+        <pose frame=''>0.0335 -0.0545 -0.043 0 -0 1.5707</pose>
+        <geometry>
+          <mesh>
+            <scale>0.001 0.001 0.001</scale>
+            <uri>model://b3w_walker/models/b3w_walker/stl/body-pole-3.STL</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <visual name='base_link_fixed_joint_lump__pole-4_visual_10'>
+        <pose frame=''>0.0335 -0.0545 -0.043 0 -0 1.5707</pose>
+        <geometry>
+          <mesh>
+            <scale>0.001 0.001 0.001</scale>
+            <uri>model://b3w_walker/models/b3w_walker/stl/body-pole-4.STL</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <gravity>1</gravity>
+      <velocity_decay/>
+      <self_collide>1</self_collide>
+    </link>
+    <link name='l_thigh'>
+      <pose frame=''>0.028 0.03 -0.033 0 -0 0</pose>
+      <inertial>
+        <pose frame=''>-0.02704 0.01199 -0.01054 3.14159 9.3e-05 -1.57089</pose>
+        <mass>0.09576</mass>
+        <inertia>
+          <ixx>3.5786e-05</ixx>
+          <ixy>-1.23213e-06</ixy>
+          <ixz>-1.62184e-06</ixz>
+          <iyy>3.55073e-05</iyy>
+          <iyz>-1.3927e-06</iyz>
+          <izz>4.40049e-05</izz>
+        </inertia>
+      </inertial>
+      <collision name='l_thigh_fixed_joint_lump__collision_collision'>
+        <pose frame=''>-0.03 0.0105 -0.0105 0 -0 0</pose>
+        <geometry>
+          <box>
+            <size>0.07 0.061 0.042</size>
+          </box>
+        </geometry>
+      </collision>
+      <visual name='l_thigh_visual'>
+        <pose frame=''>0.005 0.041 0.0105 3.14159 9.3e-05 -1.57089</pose>
+        <geometry>
+          <mesh>
+            <scale>0.001 0.001 0.001</scale>
+            <uri>model://b3w_walker/models/b3w_walker/stl/l_thigh.STL</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <script>
+            <uri>__default__</uri>
+            <name>__default__</name>
+          </script>
+        </material>
+      </visual>
+      <visual name='l_thigh_fixed_joint_lump__type2-3_visual_1'>
+        <pose frame=''>0.005 0.041 0.0105 3.14159 9.3e-05 -1.57089</pose>
+        <geometry>
+          <mesh>
+            <scale>0.001 0.001 0.001</scale>
+            <uri>model://b3w_walker/models/b3w_walker/stl/l_thigh-type2-3.STL</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <visual name='l_thigh_fixed_joint_lump__type2-4_visual_2'>
+        <pose frame=''>0.005 0.041 0.0105 3.14159 9.3e-05 -1.57089</pose>
+        <geometry>
+          <mesh>
+            <scale>0.001 0.001 0.001</scale>
+            <uri>model://b3w_walker/models/b3w_walker/stl/l_thigh-type2-4.STL</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <gravity>1</gravity>
+      <velocity_decay/>
+      <self_collide>1</self_collide>
+    </link>
+    <joint name='l_footjoint_roll' type='revolute'>
+      <child>l_thigh</child>
+      <parent>base_link</parent>
+      <axis>
+        <xyz>1 0 0</xyz>
+        <limit>
+          <lower>-0.7854</lower>
+          <upper>0.7854</upper>
+          <effort>0.4</effort>
+          <velocity>1.5707</velocity>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+        <use_parent_model_frame>1</use_parent_model_frame>
+      </axis>
+    </joint>
+    <link name='l_uf_bone'>
+      <pose frame=''>0.013 0.015 -0.054 0 -0 0</pose>
+      <inertial>
+        <pose frame=''>0 0.028 -0.0375 0 -0 0</pose>
+        <mass>0.0052</mass>
+        <inertia>
+          <ixx>7.66298e-06</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>3.12539e-06</iyy>
+          <iyz>0</iyz>
+          <izz>4.57429e-06</izz>
+        </inertia>
+      </inertial>
+      <collision name='l_uf_bone_fixed_joint_lump__collision_collision'>
+        <pose frame=''>0 0.028 -0.0375 0 -0 0</pose>
+        <geometry>
+          <box>
+            <size>0.01 0.062 0.085</size>
+          </box>
+        </geometry>
+      </collision>
+      <visual name='l_uf_bone_fixed_joint_lump__r_bone_visual'>
+        <pose frame=''>0 -0.0015 -0.0375 0 -0 0</pose>
+        <geometry>
+          <box>
+            <size>0.01 0.003 0.085</size>
+          </box>
+        </geometry>
+      </visual>
+      <visual name='l_uf_bone_fixed_joint_lump__l_bone_visual_1'>
+        <pose frame=''>0 0.0575 -0.0375 0 -0 0</pose>
+        <geometry>
+          <box>
+            <size>0.01 0.003 0.085</size>
+          </box>
+        </geometry>
+      </visual>
+      <gravity>1</gravity>
+      <velocity_decay/>
+      <self_collide>1</self_collide>
+    </link>
+    <joint name='l_footjoint_pitch' type='revolute'>
+      <child>l_uf_bone</child>
+      <parent>l_thigh</parent>
+      <axis>
+        <xyz>0 1 0</xyz>
+        <limit>
+          <lower>-1.5707</lower>
+          <upper>1.5707</upper>
+          <effort>0.4</effort>
+          <velocity>1.5707</velocity>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+        <use_parent_model_frame>1</use_parent_model_frame>
+      </axis>
+    </joint>
+    <link name='l_knee'>
+      <pose frame=''>0.013 0.071 -0.129 0 -0 0</pose>
+      <inertial>
+        <pose frame=''>0 -0.028199 -0.016247 0 1.5707 0</pose>
+        <mass>0.05516</mass>
+        <inertia>
+          <ixx>1.63468e-05</ixx>
+          <ixy>-7.90327e-07</ixy>
+          <ixz>-8.9897e-11</ixz>
+          <iyy>2.69695e-05</iyy>
+          <iyz>4.67574e-10</iyz>
+          <izz>3.95699e-05</izz>
+        </inertia>
+      </inertial>
+      <collision name='l_knee_fixed_joint_lump__collision_collision'>
+        <pose frame=''>0 -0.028 -0.0105 0 -0 0</pose>
+        <geometry>
+          <box>
+            <size>0.021 0.056 0.061</size>
+          </box>
+        </geometry>
+      </collision>
+      <collision name='l_knee_fixed_joint_lump__collision_collision_1'>
+        <pose frame=''>0 -0.028 -0.06125 0 -0 0</pose>
+        <geometry>
+          <box>
+            <size>0.021 0.062 0.0405</size>
+          </box>
+        </geometry>
+      </collision>
+      <visual name='l_knee_visual'>
+        <pose frame=''>-0.0105 -0.056 0.02 3.14159 1.57079 3.14159</pose>
+        <geometry>
+          <mesh>
+            <scale>0.001 0.001 0.001</scale>
+            <uri>model://b3w_walker/models/b3w_walker/stl/servo-servo-1.STL</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <script>
+            <uri>__default__</uri>
+            <name>__default__</name>
+          </script>
+        </material>
+      </visual>
+      <visual name='l_knee_fixed_joint_lump__type2_visual_1'>
+        <pose frame=''>-0.0105 -0.056 0.02 3.14159 1.57079 3.14159</pose>
+        <geometry>
+          <mesh>
+            <scale>0.001 0.001 0.001</scale>
+            <uri>model://b3w_walker/models/b3w_walker/stl/servo-type2-1.STL</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <visual name='l_knee_fixed_joint_lump__hinge_visual_2'>
+        <pose frame=''>-0.0105 0.003 -0.041 -1.5707 0 -1.5707</pose>
+        <geometry>
+          <mesh>
+            <scale>0.001 0.001 0.001</scale>
+            <uri>model://b3w_walker/models/b3w_walker/stl/hinge_c.STL</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <velocity_decay/>
+      <gravity>1</gravity>
+      <velocity_decay/>
+      <self_collide>1</self_collide>
+    </link>
+    <joint name='l_knee_pitch' type='revolute'>
+      <child>l_knee</child>
+      <parent>l_uf_bone</parent>
+      <axis>
+        <xyz>0 1 0</xyz>
+        <limit>
+          <lower>-1.5707</lower>
+          <upper>1.5707</upper>
+          <effort>0.4</effort>
+          <velocity>1.5707</velocity>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+        <use_parent_model_frame>1</use_parent_model_frame>
+      </axis>
+    </joint>
+    <link name='l_ankle'>
+      <pose frame=''>0.013 0.071 -0.2 0 -0 0</pose>
+      <inertial>
+        <pose frame=''>-0.01208 -0.02762 -0.01086 0 -0 1.5707</pose>
+        <mass>0.09615</mass>
+        <inertia>
+          <ixx>3.6876e-05</ixx>
+          <ixy>1.3016e-07</ixy>
+          <ixz>-1.09722e-06</ixz>
+          <iyy>3.63822e-05</iyy>
+          <iyz>-1.34261e-06</iyz>
+          <izz>4.42119e-05</izz>
+        </inertia>
+      </inertial>
+      <collision name='l_ankle_fixed_joint_lump__collision_collision'>
+        <pose frame=''>-0.015 -0.03 -0.0105 0 -0 0</pose>
+        <geometry>
+          <box>
+            <size>0.07 0.061 0.042</size>
+          </box>
+        </geometry>
+      </collision>
+      <visual name='l_ankle_visual'>
+        <pose frame=''>0.02 -0.056 -0.0315 0 -0 1.5707</pose>
+        <geometry>
+          <mesh>
+            <scale>0.001 0.001 0.001</scale>
+            <uri>model://b3w_walker/models/b3w_walker/stl/l_ankle.STL</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <script>
+            <uri>__default__</uri>
+            <name>__default__</name>
+          </script>
+        </material>
+      </visual>
+      <visual name='l_ankle_fixed_joint_lump__type2-4_visual_1'>
+        <pose frame=''>0.02 -0.056 -0.0315 0 -0 1.5707</pose>
+        <geometry>
+          <mesh>
+            <scale>0.001 0.001 0.001</scale>
+            <uri>model://b3w_walker/models/b3w_walker/stl/l_ankle_type2-4.STL</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <visual name='l_ankle_fixed_joint_lump__type2-5_visual_2'>
+        <pose frame=''>0.02 -0.056 -0.0315 0 -0 1.5707</pose>
+        <geometry>
+          <mesh>
+            <scale>0.001 0.001 0.001</scale>
+            <uri>model://b3w_walker/models/b3w_walker/stl/l_ankle_type2-5.STL</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <gravity>1</gravity>
+      <velocity_decay/>
+      <self_collide>1</self_collide>
+    </link>
+    <joint name='l_ankle_pitch' type='revolute'>
+      <child>l_ankle</child>
+      <parent>l_knee</parent>
+      <axis>
+        <xyz>0 1 0</xyz>
+        <limit>
+          <lower>-1.5707</lower>
+          <upper>1.5707</upper>
+          <effort>0.4</effort>
+          <velocity>1.5707</velocity>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+        <use_parent_model_frame>1</use_parent_model_frame>
+      </axis>
+    </joint>
+    <link name='l_foot'>
+      <pose frame=''>0.028 0.035 -0.22 0 -0 0</pose>
+      <inertial>
+        <pose frame=''>-0.02802 0.00926 -0.03082 0 -0 0</pose>
+        <mass>0.04342</mass>
+        <inertia>
+          <ixx>1.36435e-05</ixx>
+          <ixy>7.59e-09</ixy>
+          <ixz>-2.556e-08</ixz>
+          <iyy>7.39033e-05</iyy>
+          <iyz>-7.7174e-07</iyz>
+          <izz>8.12818e-05</izz>
+        </inertia>
+      </inertial>
+      <collision name='l_foot_fixed_joint_lump__collision_collision'>
+        <pose frame=''>-0.028 0.01 -0.033 0 -0 0</pose>
+        <geometry>
+          <box>
+            <size>0.16 0.06 0.006</size>
+          </box>
+        </geometry>
+	<surface>
+	  <friction>
+	    <ode>
+	      <mu>1.0</mu>
+	      <mu2>1.0</mu2>
+	    </ode>
+	  </friction>
+	</surface>
+      </collision>
+      <visual name='l_foot_visual'>
+        <pose frame=''>-0.108 -0.02 -0.036 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>0.001 0.001 0.001</scale>
+            <uri>model://b3w_walker/models/b3w_walker/stl/l_bottom-r_foot-2.STL</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <script>
+            <uri>__default__</uri>
+            <name>__default__</name>
+          </script>
+        </material>
+      </visual>
+      <visual name='l_foot_bottom_visual_1'>
+        <pose frame=''>-0.108 -0.02 -0.036 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>0.001 0.001 0.001</scale>
+            <uri>model://b3w_walker/models/b3w_walker/stl/l_bottom-bottom-2.STL</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <script>
+            <uri>__default__</uri>
+            <name>__default__</name>
+          </script>
+        </material>
+      </visual>
+      <gravity>1</gravity>
+      <velocity_decay/>
+      <self_collide>1</self_collide>
+    </link>
+    <joint name='l_ankle_roll' type='revolute'>
+      <child>l_foot</child>
+      <parent>l_ankle</parent>
+      <axis>
+        <xyz>-1 0 0</xyz>
+        <limit>
+          <lower>-0.3927</lower>
+          <upper>0.3927</upper>
+          <effort>0.4</effort>
+          <velocity>1.5707</velocity>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+        <use_parent_model_frame>1</use_parent_model_frame>
+      </axis>
+    </joint>
+    <link name='l_shoulder'>
+      <pose frame=''>0.0105 0.0545 0.08 0 -0 0</pose>
+      <inertial>
+        <pose frame=''>-0.01006 0.0099 0.0023 0 -1.5707 0</pose>
+        <mass>0.01398</mass>
+        <inertia>
+          <ixx>1.00148e-05</ixx>
+          <ixy>5.2371e-07</ixy>
+          <ixz>6.31e-09</ixz>
+          <iyy>9.8003e-06</iyy>
+          <iyz>1.893e-08</iyz>
+          <izz>3.54451e-06</izz>
+        </inertia>
+      </inertial>
+      <collision name='l_shoulder_fixed_joint_lump__collision_collision'>
+        <pose frame=''>-0.01 0.0215 0 0 -0 0</pose>
+        <geometry>
+          <box>
+            <size>0.062 0.043 0.04</size>
+          </box>
+        </geometry>
+      </collision>
+      <visual name='l_shoulder_visual'>
+        <pose frame=''>0.021 0 -0.02 3.14159 -1.57079 3.14159</pose>
+        <geometry>
+          <mesh>
+            <scale>0.001 0.001 0.001</scale>
+            <uri>model://b3w_walker/models/b3w_walker/stl/l_shoulder.STL</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <script>
+            <uri>__default__</uri>
+            <name>__default__</name>
+          </script>
+        </material>
+      </visual>
+      <gravity>1</gravity>
+      <velocity_decay/>
+      <self_collide>1</self_collide>
+    </link>
+    <joint name='l_shoulder_pitch' type='revolute'>
+      <child>l_shoulder</child>
+      <parent>base_link</parent>
+      <axis>
+        <xyz>0 -1 0</xyz>
+        <limit>
+          <lower>-1.5707</lower>
+          <upper>1.5707</upper>
+          <effort>0.4</effort>
+          <velocity>1.5707</velocity>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+        <use_parent_model_frame>1</use_parent_model_frame>
+      </axis>
+    </joint>
+    <link name='l_upper_arm'>
+      <pose frame=''>0.0285 0.0875 0.09 0 -0 0</pose>
+      <inertial>
+        <pose frame=''>-0.02823 0 -0.0395 0 1.5707 1.5707</pose>
+        <mass>0.09178</mass>
+        <inertia>
+          <ixx>2.13034e-05</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.000107782</iyy>
+          <iyz>0</iyz>
+          <izz>0.000122945</izz>
+        </inertia>
+      </inertial>
+      <collision name='l_upper_arm_fixed_joint_lump__collision_collision'>
+        <pose frame=''>-0.0375 0 -0.03931 0 -0 0</pose>
+        <geometry>
+          <box>
+            <size>0.037 0.021 0.119</size>
+          </box>
+        </geometry>
+      </collision>
+      <visual name='l_upper_arm_fixed_joint_lump__upper_arm_visual'>
+        <pose frame=''>0 -0.0105 0.02 3.14159 1.57079 -1.57089</pose>
+        <geometry>
+          <mesh>
+            <scale>0.001 0.001 0.001</scale>
+            <uri>model://b3w_walker/models/b3w_walker/stl/arm-upper_arm-1.STL</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <visual name='l_upper_arm_fixed_joint_lump__type2-1_visual_1'>
+        <pose frame=''>0 -0.0105 0.02 3.14159 1.57079 -1.57089</pose>
+        <geometry>
+          <mesh>
+            <scale>0.001 0.001 0.001</scale>
+            <uri>model://b3w_walker/models/b3w_walker/stl/arm-type2-1.STL</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <visual name='l_upper_arm_fixed_joint_lump__type2-2_visual_2'>
+        <pose frame=''>0 -0.0105 0.02 3.14159 1.57079 -1.57089</pose>
+        <geometry>
+          <mesh>
+            <scale>0.001 0.001 0.001</scale>
+            <uri>model://b3w_walker/models/b3w_walker/stl/arm-type2-2.STL</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <gravity>1</gravity>
+      <velocity_decay/>
+      <self_collide>1</self_collide>
+    </link>
+    <joint name='l_shoulder_roll' type='revolute'>
+      <child>l_upper_arm</child>
+      <parent>l_shoulder</parent>
+      <axis>
+        <xyz>1 0 0</xyz>
+        <limit>
+          <lower>-0.3927</lower>
+          <upper>1.5707</upper>
+          <effort>0.4</effort>
+          <velocity>1.5707</velocity>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+        <use_parent_model_frame>1</use_parent_model_frame>
+      </axis>
+    </joint>
+    <link name='l_lower_arm'>
+      <pose frame=''>0.0285 0.0875 0.011 0 -0 0</pose>
+      <inertial>
+        <pose frame=''>-0.02791 0 -0.01674 1.5707 -0 3.1415</pose>
+        <mass>0.00875</mass>
+        <inertia>
+          <ixx>1.89418e-06</ixx>
+          <ixy>-1.372e-08</ixy>
+          <ixz>0</ixz>
+          <iyy>5.88431e-06</iyy>
+          <iyz>0</iyz>
+          <izz>7.12594e-06</izz>
+        </inertia>
+      </inertial>
+      <collision name='l_lower_arm_fixed_joint_lump__collision_collision'>
+        <pose frame=''>-0.028 0 -0.009 0 -0 0</pose>
+        <geometry>
+          <box>
+            <size>0.062 0.021 0.042</size>
+          </box>
+        </geometry>
+      </collision>
+      <visual name='l_lower_arm_fixed_joint_lump__box_visual'>
+        <pose frame=''>0.003 -0.0105 -0.03 1.5707 -0 3.1415</pose>
+        <geometry>
+          <mesh>
+            <scale>0.001 0.001 0.001</scale>
+            <uri>model://b3w_walker/models/b3w_walker/stl/hinge.STL</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <gravity>1</gravity>
+      <velocity_decay/>
+      <self_collide>1</self_collide>
+    </link>
+    <joint name='l_elbow_roll' type='revolute'>
+      <child>l_lower_arm</child>
+      <parent>l_upper_arm</parent>
+      <axis>
+        <xyz>-1 0 0</xyz>
+        <limit>
+          <lower>-1.5707</lower>
+          <upper>1.5707</upper>
+          <effort>0.4</effort>
+          <velocity>1.5707</velocity>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+        <use_parent_model_frame>1</use_parent_model_frame>
+      </axis>
+    </joint>
+    <link name='r_thigh'>
+      <pose frame=''>0.028 -0.03 -0.033 0 -0 0</pose>
+      <inertial>
+        <pose frame=''>-0.02704 -0.01199 -0.01054 3.14159 9.3e-05 -1.57089</pose>
+        <mass>0.09576</mass>
+        <inertia>
+          <ixx>3.5786e-05</ixx>
+          <ixy>1.23213e-06</ixy>
+          <ixz>1.62184e-06</ixz>
+          <iyy>3.55073e-05</iyy>
+          <iyz>-1.3927e-06</iyz>
+          <izz>4.40049e-05</izz>
+        </inertia>
+      </inertial>
+      <collision name='r_thigh_fixed_joint_lump__collision_collision'>
+        <pose frame=''>-0.03 -0.0105 -0.0105 0 -0 0</pose>
+        <geometry>
+          <box>
+            <size>0.07 0.061 0.042</size>
+          </box>
+        </geometry>
+      </collision>
+      <visual name='r_thigh_visual'>
+        <pose frame=''>0.005 0.02 0.0105 3.14159 9.3e-05 -1.57089</pose>
+        <geometry>
+          <mesh>
+            <scale>0.001 0.001 0.001</scale>
+            <uri>model://b3w_walker/models/b3w_walker/stl/r_thigh.STL</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <script>
+            <uri>__default__</uri>
+            <name>__default__</name>
+          </script>
+        </material>
+      </visual>
+      <visual name='r_thigh_fixed_joint_lump__type2-1_visual_1'>
+        <pose frame=''>0.005 0.02 0.0105 3.14159 9.3e-05 -1.57089</pose>
+        <geometry>
+          <mesh>
+            <scale>0.001 0.001 0.001</scale>
+            <uri>model://b3w_walker/models/b3w_walker/stl/r_thigh-type2-1.STL</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <visual name='r_thigh_fixed_joint_lump__type2-2_visual_2'>
+        <pose frame=''>0.005 0.02 0.0105 3.14159 9.3e-05 -1.57089</pose>
+        <geometry>
+          <mesh>
+            <scale>0.001 0.001 0.001</scale>
+            <uri>model://b3w_walker/models/b3w_walker/stl/r_thigh-type2-2.STL</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <gravity>1</gravity>
+      <velocity_decay/>
+      <self_collide>1</self_collide>
+    </link>
+    <joint name='r_footjoint_roll' type='revolute'>
+      <child>r_thigh</child>
+      <parent>base_link</parent>
+      <axis>
+        <xyz>1 0 0</xyz>
+        <limit>
+          <lower>-0.7854</lower>
+          <upper>0.7854</upper>
+          <effort>0.4</effort>
+          <velocity>1.5707</velocity>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+        <use_parent_model_frame>1</use_parent_model_frame>
+      </axis>
+    </joint>
+    <link name='r_uf_bone'>
+      <pose frame=''>0.013 -0.015 -0.054 0 -0 0</pose>
+      <inertial>
+        <pose frame=''>0 -0.028 -0.0375 0 -0 0</pose>
+        <mass>0.0052</mass>
+        <inertia>
+          <ixx>7.66298e-06</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>3.12539e-06</iyy>
+          <iyz>0</iyz>
+          <izz>4.57429e-06</izz>
+        </inertia>
+      </inertial>
+      <collision name='r_uf_bone_fixed_joint_lump__collision_collision'>
+        <pose frame=''>0 -0.028 -0.0375 0 -0 0</pose>
+        <geometry>
+          <box>
+            <size>0.01 0.062 0.085</size>
+          </box>
+        </geometry>
+      </collision>
+      <visual name='r_uf_bone_fixed_joint_lump__l_bone_visual'>
+        <pose frame=''>0 0.0015 -0.0375 0 -0 0</pose>
+        <geometry>
+          <box>
+            <size>0.01 0.003 0.085</size>
+          </box>
+        </geometry>
+      </visual>
+      <visual name='r_uf_bone_fixed_joint_lump__r_bone_visual_1'>
+        <pose frame=''>0 -0.0575 -0.0375 0 -0 0</pose>
+        <geometry>
+          <box>
+            <size>0.01 0.003 0.085</size>
+          </box>
+        </geometry>
+      </visual>
+      <gravity>1</gravity>
+      <velocity_decay/>
+      <self_collide>1</self_collide>
+    </link>
+    <joint name='r_footjoint_pitch' type='revolute'>
+      <child>r_uf_bone</child>
+      <parent>r_thigh</parent>
+      <axis>
+        <xyz>0 -1 0</xyz>
+        <limit>
+          <lower>-1.5707</lower>
+          <upper>1.5707</upper>
+          <effort>0.4</effort>
+          <velocity>1.5707</velocity>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+        <use_parent_model_frame>1</use_parent_model_frame>
+      </axis>
+    </joint>
+    <link name='r_knee'>
+      <pose frame=''>0.013 -0.071 -0.129 0 -0 0</pose>
+      <inertial>
+        <pose frame=''>0 0.028199 -0.016247 0 1.5707 3.1415</pose>
+        <mass>0.05516</mass>
+        <inertia>
+          <ixx>1.63468e-05</ixx>
+          <ixy>-7.90327e-07</ixy>
+          <ixz>-7.89042e-11</ixz>
+          <iyy>2.69695e-05</iyy>
+          <iyz>-1.62577e-11</iyz>
+          <izz>3.95699e-05</izz>
+        </inertia>
+      </inertial>
+      <collision name='r_knee_fixed_joint_lump__collision_collision'>
+        <pose frame=''>0 0.028 -0.0105 0 -0 0</pose>
+        <geometry>
+          <box>
+            <size>0.021 0.056 0.061</size>
+          </box>
+        </geometry>
+      </collision>
+      <collision name='r_knee_fixed_joint_lump__collision_collision_1'>
+        <pose frame=''>0 0.028 -0.06125 0 -0 0</pose>
+        <geometry>
+          <box>
+            <size>0.021 0.062 0.0405</size>
+          </box>
+        </geometry>
+      </collision>
+      <visual name='r_knee_visual'>
+        <pose frame=''>0.0105 0.056 0.02 3.14159 1.57079 -9.3e-05</pose>
+        <geometry>
+          <mesh>
+            <scale>0.001 0.001 0.001</scale>
+            <uri>model://b3w_walker/models/b3w_walker/stl/servo-servo-1.STL</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <script>
+            <uri>__default__</uri>
+            <name>__default__</name>
+          </script>
+        </material>
+      </visual>
+      <visual name='r_knee_fixed_joint_lump__type2_visual_1'>
+        <pose frame=''>0.0105 0.056 0.02 3.14159 1.57079 -9.3e-05</pose>
+        <geometry>
+          <mesh>
+            <scale>0.001 0.001 0.001</scale>
+            <uri>model://b3w_walker/models/b3w_walker/stl/servo-type2-1.STL</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <visual name='r_knee_fixed_joint_lump__hinge_visual_2'>
+        <pose frame=''>0.0105 -0.003 -0.041 -1.5707 -0 1.5707</pose>
+        <geometry>
+          <mesh>
+            <scale>0.001 0.001 0.001</scale>
+            <uri>model://b3w_walker/models/b3w_walker/stl/hinge_c.STL</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <velocity_decay/>
+      <gravity>1</gravity>
+      <velocity_decay/>
+      <self_collide>1</self_collide>
+    </link>
+    <joint name='r_knee_pitch' type='revolute'>
+      <child>r_knee</child>
+      <parent>r_uf_bone</parent>
+      <axis>
+        <xyz>0 -1 0</xyz>
+        <limit>
+          <lower>-1.5707</lower>
+          <upper>1.5707</upper>
+          <effort>0.4</effort>
+          <velocity>1.5707</velocity>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+        <use_parent_model_frame>1</use_parent_model_frame>
+      </axis>
+    </joint>
+    <link name='r_ankle'>
+      <pose frame=''>0.013 -0.071 -0.2 0 -0 0</pose>
+      <inertial>
+        <pose frame=''>-0.01208 0.02762 -0.01086 0 -0 1.5707</pose>
+        <mass>0.09615</mass>
+        <inertia>
+          <ixx>3.6876e-05</ixx>
+          <ixy>-1.3016e-07</ixy>
+          <ixz>1.09722e-06</ixz>
+          <iyy>3.63822e-05</iyy>
+          <iyz>-1.34261e-06</iyz>
+          <izz>4.42119e-05</izz>
+        </inertia>
+      </inertial>
+      <collision name='r_ankle_fixed_joint_lump__collision_collision'>
+        <pose frame=''>-0.015 0.03 -0.0105 0 -0 0</pose>
+        <geometry>
+          <box>
+            <size>0.07 0.061 0.042</size>
+          </box>
+        </geometry>
+      </collision>
+      <visual name='r_ankle_visual'>
+        <pose frame=''>0.02 -0.005 -0.0315 0 -0 1.5707</pose>
+        <geometry>
+          <mesh>
+            <scale>0.001 0.001 0.001</scale>
+            <uri>model://b3w_walker/models/b3w_walker/stl/r_ankle.STL</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <script>
+            <uri>__default__</uri>
+            <name>__default__</name>
+          </script>
+        </material>
+      </visual>
+      <visual name='r_ankle_fixed_joint_lump__type2-1_visual_1'>
+        <pose frame=''>0.02 -0.005 -0.0315 0 -0 1.5707</pose>
+        <geometry>
+          <mesh>
+            <scale>0.001 0.001 0.001</scale>
+            <uri>model://b3w_walker/models/b3w_walker/stl/r_ankle_type2-1.STL</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <visual name='r_ankle_fixed_joint_lump__type2-2_visual_2'>
+        <pose frame=''>0.02 -0.005 -0.0315 0 -0 1.5707</pose>
+        <geometry>
+          <mesh>
+            <scale>0.001 0.001 0.001</scale>
+            <uri>model://b3w_walker/models/b3w_walker/stl/r_ankle_type2-2.STL</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <gravity>1</gravity>
+      <velocity_decay/>
+      <self_collide>1</self_collide>
+    </link>
+    <joint name='r_ankle_pitch' type='revolute'>
+      <child>r_ankle</child>
+      <parent>r_knee</parent>
+      <axis>
+        <xyz>0 -1 0</xyz>
+        <limit>
+          <lower>-1.5707</lower>
+          <upper>1.5707</upper>
+          <effort>0.4</effort>
+          <velocity>1.5707</velocity>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+        <use_parent_model_frame>1</use_parent_model_frame>
+      </axis>
+    </joint>
+    <link name='r_foot'>
+      <pose frame=''>0.028 -0.035 -0.22 0 -0 0</pose>
+      <inertial>
+        <pose frame=''>-0.02802 -0.00926 -0.03082 0 -0 0</pose>
+        <mass>0.04342</mass>
+        <inertia>
+          <ixx>1.36435e-05</ixx>
+          <ixy>-7.59e-09</ixy>
+          <ixz>-2.556e-08</ixz>
+          <iyy>7.39033e-05</iyy>
+          <iyz>7.7174e-07</iyz>
+          <izz>8.12818e-05</izz>
+        </inertia>
+      </inertial>
+      <collision name='r_foot_fixed_joint_lump__collision_collision'>
+        <pose frame=''>-0.028 -0.01 -0.033 0 -0 0</pose>
+        <geometry>
+          <box>
+            <size>0.16 0.06 0.006</size>
+          </box>
+        </geometry>
+	<surface>
+	  <friction>
+	    <ode>
+	      <mu>1.0</mu>
+	      <mu2>1.0</mu2>
+	    </ode>
+	  </friction>
+	</surface>
+      </collision>
+      <visual name='r_foot_visual'>
+        <pose frame=''>-0.108 -0.04 -0.036 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>0.001 0.001 0.001</scale>
+            <uri>model://b3w_walker/models/b3w_walker/stl/r_bottom-r_foot-1.STL</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <script>
+            <uri>__default__</uri>
+            <name>__default__</name>
+          </script>
+        </material>
+      </visual>
+      <visual name='r_foot_bottom_visual_1'>
+        <pose frame=''>-0.108 -0.04 -0.036 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>0.001 0.001 0.001</scale>
+            <uri>model://b3w_walker/models/b3w_walker/stl/r_bottom-bottom-1.STL</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <script>
+            <uri>__default__</uri>
+            <name>__default__</name>
+          </script>
+        </material>
+      </visual>
+      <gravity>1</gravity>
+      <velocity_decay/>
+      <self_collide>1</self_collide>
+    </link>
+    <joint name='r_ankle_roll' type='revolute'>
+      <child>r_foot</child>
+      <parent>r_ankle</parent>
+      <axis>
+        <xyz>-1 0 0</xyz>
+        <limit>
+          <lower>-0.3927</lower>
+          <upper>0.3927</upper>
+          <effort>0.4</effort>
+          <velocity>1.5707</velocity>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+        <use_parent_model_frame>1</use_parent_model_frame>
+      </axis>
+    </joint>
+    <link name='r_shoulder'>
+      <pose frame=''>0.0105 -0.0545 0.08 0 -0 0</pose>
+      <inertial>
+        <pose frame=''>-0.01006 -0.0099 0.0023 0 -1.5707 0</pose>
+        <mass>0.01398</mass>
+        <inertia>
+          <ixx>1.00148e-05</ixx>
+          <ixy>-5.2371e-07</ixy>
+          <ixz>6.31e-09</ixz>
+          <iyy>9.8003e-06</iyy>
+          <iyz>-1.893e-08</iyz>
+          <izz>3.54451e-06</izz>
+        </inertia>
+      </inertial>
+      <collision name='r_shoulder_fixed_joint_lump__collision_collision'>
+        <pose frame=''>-0.01 -0.0215 0 0 -0 0</pose>
+        <geometry>
+          <box>
+            <size>0.062 0.043 0.04</size>
+          </box>
+        </geometry>
+      </collision>
+      <visual name='r_shoulder_visual'>
+        <pose frame=''>0.021 -0.043 -0.02 3.14159 -1.57079 3.14159</pose>
+        <geometry>
+          <mesh>
+            <scale>0.001 0.001 0.001</scale>
+            <uri>model://b3w_walker/models/b3w_walker/stl/r_shoulder.STL</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <script>
+            <uri>__default__</uri>
+            <name>__default__</name>
+          </script>
+        </material>
+      </visual>
+      <gravity>1</gravity>
+      <velocity_decay/>
+      <self_collide>1</self_collide>
+    </link>
+    <joint name='r_shoulder_pitch' type='revolute'>
+      <child>r_shoulder</child>
+      <parent>base_link</parent>
+      <axis>
+        <xyz>0 1 0</xyz>
+        <limit>
+          <lower>-1.5707</lower>
+          <upper>1.5707</upper>
+          <effort>0.4</effort>
+          <velocity>1.5707</velocity>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+        <use_parent_model_frame>1</use_parent_model_frame>
+      </axis>
+    </joint>
+    <link name='r_upper_arm'>
+      <pose frame=''>0.0285 -0.0875 0.09 0 -0 0</pose>
+      <inertial>
+        <pose frame=''>-0.02823 0 -0.0395 0 1.5707 1.5707</pose>
+        <mass>0.09178</mass>
+        <inertia>
+          <ixx>2.13034e-05</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.000107782</iyy>
+          <iyz>0</iyz>
+          <izz>0.000122945</izz>
+        </inertia>
+      </inertial>
+      <collision name='r_upper_arm_fixed_joint_lump__collision_collision'>
+        <pose frame=''>-0.0375 0 -0.03931 0 -0 0</pose>
+        <geometry>
+          <box>
+            <size>0.037 0.021 0.119</size>
+          </box>
+        </geometry>
+      </collision>
+      <visual name='r_upper_arm_fixed_joint_lump__upper_arm_visual'>
+        <pose frame=''>0 -0.0105 0.02 3.14159 1.57079 -1.57089</pose>
+        <geometry>
+          <mesh>
+            <scale>0.001 0.001 0.001</scale>
+            <uri>model://b3w_walker/models/b3w_walker/stl/arm-upper_arm-1.STL</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <visual name='r_upper_arm_fixed_joint_lump__type2-1_visual_1'>
+        <pose frame=''>0 -0.0105 0.02 3.14159 1.57079 -1.57089</pose>
+        <geometry>
+          <mesh>
+            <scale>0.001 0.001 0.001</scale>
+            <uri>model://b3w_walker/models/b3w_walker/stl/arm-type2-1.STL</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <visual name='r_upper_arm_fixed_joint_lump__type2-2_visual_2'>
+        <pose frame=''>0 -0.0105 0.02 3.14159 1.57079 -1.57089</pose>
+        <geometry>
+          <mesh>
+            <scale>0.001 0.001 0.001</scale>
+            <uri>model://b3w_walker/models/b3w_walker/stl/arm-type2-2.STL</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <gravity>1</gravity>
+      <velocity_decay/>
+      <self_collide>1</self_collide>
+    </link>
+    <joint name='r_shoulder_roll' type='revolute'>
+      <child>r_upper_arm</child>
+      <parent>r_shoulder</parent>
+      <axis>
+        <xyz>1 0 0</xyz>
+        <limit>
+          <lower>-1.5707</lower>
+          <upper>0.3927</upper>
+          <effort>0.4</effort>
+          <velocity>1.5707</velocity>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+        <use_parent_model_frame>1</use_parent_model_frame>
+      </axis>
+    </joint>
+    <link name='r_lower_arm'>
+      <pose frame=''>0.0285 -0.0875 0.011 0 -0 0</pose>
+      <inertial>
+        <pose frame=''>-0.02791 0 -0.01674 1.5707 -0 3.1415</pose>
+        <mass>0.00875</mass>
+        <inertia>
+          <ixx>1.89418e-06</ixx>
+          <ixy>-1.372e-08</ixy>
+          <ixz>0</ixz>
+          <iyy>5.88431e-06</iyy>
+          <iyz>0</iyz>
+          <izz>7.12594e-06</izz>
+        </inertia>
+      </inertial>
+      <collision name='r_lower_arm_fixed_joint_lump__collision_collision'>
+        <pose frame=''>-0.028 0 -0.009 0 -0 0</pose>
+        <geometry>
+          <box>
+            <size>0.062 0.021 0.042</size>
+          </box>
+        </geometry>
+      </collision>
+      <visual name='r_lower_arm_fixed_joint_lump__box_visual'>
+        <pose frame=''>0.003 -0.0105 -0.03 1.5707 -0 3.1415</pose>
+        <geometry>
+          <mesh>
+            <scale>0.001 0.001 0.001</scale>
+            <uri>model://b3w_walker/models/b3w_walker/stl/hinge.STL</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <gravity>1</gravity>
+      <velocity_decay/>
+      <self_collide>1</self_collide>
+    </link>
+    <joint name='r_elbow_roll' type='revolute'>
+      <child>r_lower_arm</child>
+      <parent>r_upper_arm</parent>
+      <axis>
+        <xyz>-1 0 0</xyz>
+        <limit>
+          <lower>-1.5707</lower>
+          <upper>1.5707</upper>
+          <effort>0.4</effort>
+          <velocity>1.5707</velocity>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+        <use_parent_model_frame>1</use_parent_model_frame>
+      </axis>
+    </joint>
+    <static>0</static>
+    <plugin name='gazebo_ros_control' filename='libgazebo_ros_control.so'>
+      <robotNamespace>/b3w_walker</robotNamespace>
+    </plugin>
+  </model>
+</sdf>

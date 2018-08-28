@@ -1,0 +1,85 @@
+rdf_loader::RDFLoader
+	RDFLoader(string robot_description)
+	boost::shared_ptr<srdf::Model>& getSRDF()
+	boost::shared_ptr<urdf::ModelInterface>& getURDF()
+
+robot_model::Robot_Model
+	Robot_Model(boost::shared_ptr<urdf::ModelInterface> urdf_model,boost::shared_ptr<urdf::ModelInterface> srdf_model)
+	robot_model::JointModelGroup* getJointModelGroup(string group_name)
+
+robot_state::RobotState
+	RobotState(robot_model::RobotModel)
+	setToDefaultValues()
+	setJointGroupPositions(robot_model::JointModelGroup*,double*)
+	Eigen::Affine3d getGlobalLinkTransform(string linkname)
+	setToIKSolverFrame(Eigne::Affine3d eff_pose,string baseframe)
+
+robot_model::JointModelGroup
+	bool isChain()
+	bool isSingleDOFJoints()
+	bool hasLinkModel(string linkname)
+	vector<moveit::core::JointModel*> getActiveJointModels()
+	vector<string> getVariableNames()
+	vector<string> getJointModelNames()
+
+moveit::core::JointModel
+	getType()
+	std::vector<moveit_msgs::JointLimits>& getVariableBoudingMsg()
+
+kdl_parser::treeFromUrdfModel(shared_ptr<urdf::ModelInterface>,KDL::Tree)
+
+KDL::Tree
+
+KDL::JntArray
+	JntArray(int jointnum)
+	int& operator()(int ind)
+
+KDL::Twist
+	static KDL::Twist Zero()
+	KDL::Vector vel
+	KDL::Vector rot
+
+KDL::Vector
+	x()
+	y()
+	z()
+	Normalize()
+	KDL::Vector operator*(double)
+
+moveit_msgs::KinematicSolverInfo
+	vector<string> joint_names
+
+moveit_visual_tools::MoveitVisualTools
+	MoveitVisualTools(string "odom",string "/markers",robot_model::RobotModel* robot_model)
+	loadRobotStatePub("name")
+	publishRobotState(robot_state::RobotState*)
+
+tf::poseMSgToKDL(geometry_msgs::Pose,KDL::Frame)
+poseEigenToKDL(Eigen::Affine3d,KDL::frame)
+
+IKChainGroup
+	IKChainGroup(robot_model::JointModelGroup*)
+	num_unlocked_joints_
+	jacobian_coords_
+	vector<bool> locked_joints_
+
+CartesionToJointDate
+	CartesionToJointData(int joint_dimension,int tip_num)
+	KDL::frame current_pose_
+	KDL::Twist delta_twist_
+	KDL::Twist delta_twists_
+	prev_H_
+	qdot_
+	qdot_cashe_
+	Jacobian2d jacobian_
+
+JacobianGenerator
+	JacobianGEnerator(bool verbose)
+	bool initialize(shared_ptr<urdf::ModelInterface> urdf_model,shared_prt<robot_model::Robot_Model> robot_model, vector<string> tips, shared_ptr<robot_model::JointModelGroup> joint_model_group)
+	generateJacobian(robot_state::RobotState*,Jacobian2d)
+
+IkSolverPinverse
+	IkSolverPinverse(int tip_num,int joint_num,KDL::JntArray joint_min,KDL::JntArray joint_max,CartesionToJointDate.jacobian,double eps,int maxiter,bool verbose)
+	cartesianToJoint(いっぱい)
+
+int newtonRaphsonIterator(KDL::JntArray jnt_pos_in,vector<KDL::Frame> kdl_poses,KDL::JntArray jst_pos_out,int total_loops)
