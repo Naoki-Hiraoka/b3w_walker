@@ -5,12 +5,12 @@ B3冬に3dプリンタでヒューマノイドロボットを作成した。move
 use Naoki-Hiraoka/hrl_kinematics/tree/develop
 
 ハードウェアに搭載したraspberry pi3で
-roslaunch b3w_walker b3w_walker_bringup.launch
+```roslaunch b3w_walker b3w_walker_bringup.launch```
 またはノートPC上で
-roslaunch b3w_walker b3w_walker_gazebo.launch
+```roslaunch b3w_walker b3w_walker_gazebo.launch```
 
 そして、
-roslaunch b3w_walker b3w_walker_planner.launch
+```roslaunch b3w_walker b3w_walker_planner.launch```
 
 その後、
-rosrun b3w_humanoid tutorial2.cpp
+```rosrun b3w_humanoid tutorial2```
