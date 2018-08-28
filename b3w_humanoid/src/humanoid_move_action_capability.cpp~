@@ -1,0 +1,124 @@
+#include <moveit/planning_pipeline/planning_pipeline.h>
+#include <moveit/plan_execution/plan_execution.h>
+#include <moveit/plan_execution/plan_with_sensing.h>
+#include <moveit/trajectory_processing/trajectory_tools.h>
+#include <moveit/kinematic_constraints/utils.h>
+#include <moveit/move_group/capability_names.h>
+
+#include <eigen_conversions/eigen_msg.h>
+
+#include <b3w_humanoid/humanoid_move_action_capability.h>
+
+b3w_humanoid::HumanoidMoveAction::HumanoidMoveAction()
+  : move_group::MoveGroupMoveAction()
+{
+}
+
+void b3w_humanoid::HumanoidMoveAction::initialize() 
+{
+  ROS_ERROR_STREAM_NAMED("temp","move group initialize");
+  move_group::MoveGroupMoveAction::initialize();
+
+  r_foot_link="r_foot_endcoords";
+  l_foot_link="l_foot_endcoords";
+  r_mesh_link="r_foot";
+  base_foot="left";
+  
+  planning_scene_monitor::LockedPlanningSceneRW planning_scene_{context_->planning_scene_monitor_};
+
+  //stabilityのコールバック
+  //衝突平面の追加
+  moveit_msgs::AttachedCollisionObject attached_object;
+  attached_object.link_name = "r_foot_endcoords";
+  attached_object.touch_links.push_back("r_foot_endcoords");
+  attached_object.touch_links.push_back("r_foot");
+  attached_object.touch_links.push_back("l_foot_endcoords");
+  attached_object.touch_links.push_back("l_foot");
+  /* The header must contain a valid TF frame*/
+  attached_object.object.header.frame_id = "r_foot_endcoords";
+  /* The id of the object */
+  attached_object.object.id = "floor";
+  /* A default pose */
+  geometry_msgs::Pose pose;
+  pose.position.z=-0.001;
+  pose.orientation.w = 1.0;
+  /* Define a box to be attached */
+  shape_msgs::SolidPrimitive primitive;
+  primitive.type = primitive.BOX;
+  primitive.dimensions.resize(3);
+  primitive.dimensions[0] = 1.0;
+  primitive.dimensions[1] = 1.0;
+  primitive.dimensions[2] = 0.001;
+  attached_object.object.primitives.push_back(primitive);
+  attached_object.object.primitive_poses.push_back(pose);
+  attached_object.object.operation = attached_object.object.ADD;
+  moveit_msgs::PlanningScene planning_scene_msg;
+  planning_scene_msg.robot_state.attached_collision_objects.push_back(attached_object);
+  planning_scene_msg.is_diff = true;
+  planning_scene_->setPlanningSceneDiffMsg(planning_scene_msg);
+  
+  //コールバック関数の初期化
+  test_stability.reset(new hrl_kinematics::TestStability(r_mesh_link,
+							 planning_scene_->getRobotModel()->getRootLink()->getName(),
+							 r_foot_link,
+							 l_foot_link,
+							 planning_scene_->getRobotModel()->getURDF(),
+							 0.8));
+  //コールバック関数を登録
+  planning_scene_->setStateFeasibilityPredicate(std::bind(&b3w_humanoid::HumanoidMoveAction::statefeasibility_cb,this, std::placeholders::_1, std::placeholders::_2));
+
+
+  
+  
+  ROS_ERROR_STREAM(planning_scene_->getRobotModel()->getRootLink()->getName());
+}
+
+bool b3w_humanoid::HumanoidMoveAction::statefeasibility_cb(const robot_state::RobotState& robot_state,bool verbose) const{
+  //ROS_ERROR_STREAM_NAMED("temp","statefeasibility_cb");
+
+
+  hrl_kinematics::Kinematics::FootSupport supportmode;
+
+  Eigen::Affine3d footpos_eigen;
+  if(base_foot=="right"){
+    footpos_eigen=robot_state.getGlobalLinkTransform(r_foot_link).inverse() * robot_state.getGlobalLinkTransform(l_foot_link);
+  }else{
+    footpos_eigen=robot_state.getGlobalLinkTransform(l_foot_link).inverse() * robot_state.getGlobalLinkTransform(r_foot_link);
+  }
+  geometry_msgs::Pose footpos;
+  tf::poseEigenToMsg(footpos_eigen,footpos);
+  if(footpos.position.z<-0.002){
+    //ROS_ERROR_STREAM("z<0.0");
+    return false;
+  }else if(footpos.position.z>=-0.002 && footpos.position.z<=0.002){
+    if((footpos.position.x>-0.002&&footpos.position.x<0.002) || (footpos.position.x>0.068&&footpos.position.x<0.072)){
+      supportmode=hrl_kinematics::Kinematics::FootSupport::SUPPORT_DOUBLE;
+      //ROS_ERROR_STREAM("double");
+    }else{
+      //ROS_ERROR_STREAM("trail");
+      return false;
+    }
+  }else{
+    if(base_foot=="right"){
+      supportmode=hrl_kinematics::Kinematics::FootSupport::SUPPORT_SINGLE_RIGHT;
+      //ROS_ERROR_STREAM("right");
+    }else{
+      supportmode=hrl_kinematics::Kinematics::FootSupport::SUPPORT_SINGLE_LEFT;
+    }
+  }
+
+  //2以上のDOFには対応しない
+  std::vector<std::string> joint_names=robot_state.getVariableNames();
+  const double* joint_angles=robot_state.getVariablePositions();
+  std::map<std::string, double> joint_map;
+  for(int i=0;i<joint_names.size();i++){
+    joint_map[joint_names[i]]=*(joint_angles+i);
+  }
+
+  bool tmp=test_stability->isPoseStable(joint_map,supportmode);
+  //ROS_ERROR_STREAM(tmp);
+  return tmp;
+}
+
+#include <class_loader/class_loader.h>
+CLASS_LOADER_REGISTER_CLASS(b3w_humanoid::HumanoidMoveAction, move_group::MoveGroupCapability)

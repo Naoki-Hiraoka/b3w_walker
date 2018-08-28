@@ -1,0 +1,29 @@
+#ifndef B3W_HUMANOID_MOVE_GROUP_MOVE_ACTION_CAPABILITY_
+#define B3W_HUMANOID_GROUP_MOVE_ACTION_CAPABILITY_
+
+#include <moveit/move_group/move_group_capability.h>
+#include <b3w_humanoid/move_action_capability.h>
+#include <actionlib/server/simple_action_server.h>
+#include <moveit_msgs/MoveGroupAction.h>
+#include <memory>
+#include <hrl_kinematics/TestStability.h>
+
+namespace b3w_humanoid
+{
+  class HumanoidMoveAction : public move_group::MoveGroupMoveAction{
+  public:
+    HumanoidMoveAction();
+    
+    virtual void initialize() override;
+  protected:
+    bool statefeasibility_cb(const robot_state::RobotState& robot_state,bool verbose) const;
+
+    std::shared_ptr<hrl_kinematics::TestStability> test_stability;
+    std::string r_foot_link;
+    std::string l_foot_link;
+    std::string base_foot;
+    std::string r_mesh_link;
+  };
+}
+
+#endif

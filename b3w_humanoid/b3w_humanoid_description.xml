@@ -1,0 +1,17 @@
+<library path="lib/libb3w_humanoid">
+  <class name="b3w_humanoid/HumanoidMoveAction" type="b3w_humanoid::HumanoidMoveAction" base_class_type="move_group::MoveGroupCapability">
+    <description>
+      humanoid stability
+    </description>
+  </class>
+  <class name="b3w_humanoid/PosesConstraintSamplerAllocator" type="b3w_humanoid::PosesConstraintSamplerAllocator" base_class_type="constraint_samplers::ConstraintSamplerAllocator">
+    <description>
+      using searchPositionIK(Poses)
+    </description>
+  </class>
+  <class name="b3w_humanoid/MoveGroupKinematicsService" type="b3w_humanoid::MoveGroupKinematicsService" base_class_type="move_group::MoveGroupCapability">
+    <description>
+      humanoid stability
+    </description>
+  </class>
+</library>
