@@ -1634,6 +1634,7 @@
     <plugin name='gazebo_ros_control' filename='libgazebo_ros_control.so'>
       <robotNamespace>b3w_walker</robotNamespace>
       <robotParam>b3w_walker/robot_description</robotParam>
+      <legacyModeNS>true</legacyModeNS>
     </plugin>
   </model>
 </sdf>
