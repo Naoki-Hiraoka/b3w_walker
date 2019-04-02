@@ -4,68 +4,90 @@ b3w_walker:
     publish_rate: 50   
   
   r_shoulder_pitch_controller:
-    type: position_controllers/JointPositionController
+    type: effort_controllers/JointPositionController
     joint: r_shoulder_pitch
+    pid: {p: 3.0, i: 0.01, d: 0.01}
   r_shoulder_roll_controller:
-    type: position_controllers/JointPositionController
+    type: effort_controllers/JointPositionController
     joint: r_shoulder_roll
+    pid: {p: 3.0, i: 0.01, d: 0.01}
   r_elbow_roll_controller:
-    type: position_controllers/JointPositionController
-    joint: r_elbow_roll 
+    type: effort_controllers/JointPositionController
+    joint: r_elbow_roll
+    pid: {p: 3.0, i: 0.01, d: 0.01}
   l_shoulder_pitch_controller:
-    type: position_controllers/JointPositionController
+    type: effort_controllers/JointPositionController
     joint: l_shoulder_pitch
+    pid: {p: 3.0, i: 0.01, d: 0.01}
   l_shoulder_roll_controller:
-    type: position_controllers/JointPositionController
+    type: effort_controllers/JointPositionController
     joint: l_shoulder_roll
+    pid: {p: 3.0, i: 0.01, d: 0.01}
   l_elbow_roll_controller:
-    type: position_controllers/JointPositionController
+    type: effort_controllers/JointPositionController
     joint: l_elbow_roll
+    pid: {p: 3.0, i: 0.01, d: 0.01}
   r_footjoint_roll_controller:
-    type: position_controllers/JointPositionController
+    type: effort_controllers/JointPositionController
     joint: r_footjoint_roll
+    pid: {p: 3.0, i: 0.01, d: 0.01}
   r_footjoint_pitch_controller:
-    type: position_controllers/JointPositionController
+    type: effort_controllers/JointPositionController
     joint: r_footjoint_pitch
+    pid: {p: 3.0, i: 0.01, d: 0.01}
   r_b_footjoint_pitch_controller:
-    type: position_controllers/JointPositionController
+    type: effort_controllers/JointPositionController
     joint: r_b_footjoint_pitch
+    pid: {p: 3.0, i: 0.01, d: 0.01}
   r_uf_knee_controller:
-    type: position_controllers/JointPositionController
+    type: effort_controllers/JointPositionController
     joint: r_uf_knee
+    pid: {p: 3.0, i: 0.01, d: 0.01}
   r_db_knee_controller:
-    type: position_controllers/JointPositionController
+    type: effort_controllers/JointPositionController
     joint: r_db_knee
+    pid: {p: 3.0, i: 0.01, d: 0.01}
   r_df_knee_controller:
-    type: position_controllers/JointPositionController
+    type: effort_controllers/JointPositionController
     joint: r_df_knee
+    pid: {p: 3.0, i: 0.01, d: 0.01}
   r_ankle_pitch_controller:
-    type: position_controllers/JointPositionController
+    type: effort_controllers/JointPositionController
     joint: r_ankle_pitch
+    pid: {p: 3.0, i: 0.01, d: 0.01}
   r_ankle_roll_controller:
-    type: position_controllers/JointPositionController
+    type: effort_controllers/JointPositionController
     joint: r_ankle_roll
+    pid: {p: 3.0, i: 0.01, d: 0.01}
   l_footjoint_roll_controller:
-    type: position_controllers/JointPositionController
+    type: effort_controllers/JointPositionController
     joint: l_footjoint_roll
+    pid: {p: 3.0, i: 0.01, d: 0.01}
   l_footjoint_pitch_controller:
-    type: position_controllers/JointPositionController
+    type: effort_controllers/JointPositionController
     joint: l_footjoint_pitch
+    pid: {p: 3.0, i: 0.01, d: 0.01}
   l_b_footjoint_pitch_controller:
-    type: position_controllers/JointPositionController
+    type: effort_controllers/JointPositionController
     joint: l_b_footjoint_pitch
+    pid: {p: 3.0, i: 0.01, d: 0.01}
   l_uf_knee_controller:
-    type: position_controllers/JointPositionController
+    type: effort_controllers/JointPositionController
     joint: l_uf_knee
+    pid: {p: 3.0, i: 0.01, d: 0.01}
   l_db_knee_controller:
-    type: position_controllers/JointPositionController
+    type: effort_controllers/JointPositionController
     joint: l_db_knee
+    pid: {p: 3.0, i: 0.01, d: 0.01}
   l_df_knee_controller:
-    type: position_controllers/JointPositionController
+    type: effort_controllers/JointPositionController
     joint: l_df_knee
+    pid: {p: 3.0, i: 0.01, d: 0.01}
   l_ankle_pitch_controller:
-    type: position_controllers/JointPositionController
+    type: effort_controllers/JointPositionController
     joint: l_ankle_pitch
+    pid: {p: 3.0, i: 0.01, d: 0.01}
   l_ankle_roll_controller:
-    type: position_controllers/JointPositionController
+    type: effort_controllers/JointPositionController
     joint: l_ankle_roll
+    pid: {p: 3.0, i: 0.01, d: 0.01}

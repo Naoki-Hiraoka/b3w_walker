@@ -8,6 +8,7 @@ ros-kinetic-transmission-interface
 use Naoki-Hiraoka/hrl_kinematics/tree/develop
 
 ros-kinetic-position-controllers
+ros-kinetic-effort-controllers
 ros-kinetic-joint-trajectory-controller
 ros-kinetic-gazebo-ros-control
 
